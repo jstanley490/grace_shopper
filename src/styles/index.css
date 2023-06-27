@@ -2,4 +2,8 @@ body {
   margin: 0 auto;
   /* background-color: #f4cf9ed6; */
   background-color: white;
+  font-family: "Montserrat", sans-serif;
+}
+#page {
+  padding: 2.5rem;
 }

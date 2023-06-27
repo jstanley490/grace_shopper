@@ -1,6 +1,3 @@
-
 export default function Register() {
-  return (
-    <div>register</div>
-  )
+  return <div id="page">register</div>;
 }

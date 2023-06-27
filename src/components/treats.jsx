@@ -1,6 +1,3 @@
-
 export default function Treats() {
-  return (
-    <div>treats</div>
-  )
+  return <div id="page">treats</div>;
 }

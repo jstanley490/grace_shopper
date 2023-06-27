@@ -1,6 +1,3 @@
-
 export default function IndividualTreat() {
-  return (
-    <div>I</div>
-  )
+  return <div id="page">I</div>;
 }
