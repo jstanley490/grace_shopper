@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./styles/navbar.css";
 import "./styles/index.css";
+import "./styles/navbar.css";
+import "./styles/account-form.css";
 import Root from "./root";
 import ErrorPage from "./error-page";
 import Homepage from "./components/homepage";
