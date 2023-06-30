@@ -21,6 +21,7 @@ export default function Root() {
           },
         });
         const result = await response.json();
+        console.log(result);
         if (result.id) {
           setUser(result);
         }
