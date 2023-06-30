@@ -9,7 +9,7 @@ export default function Navbar({ token }) {
       <Link to="/merch" className="nav-link">
         Merch
       </Link>
-      <Link to="/" id="nav-logo" className="nav-link">
+      <Link to="/" id="nav-logo">
         <img
           src="../src/assets/logo.svg"
           alt="chocolate chip cookie with bite taken out of it"

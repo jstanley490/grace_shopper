@@ -4,8 +4,7 @@ body {
   background-color: white;
   font-family: "Montserrat", sans-serif;
   background-color: rgba(83, 66, 41, 0.294);
-  background-image: linear-gradient(
-    to bottom,
+  background-image: linear-gradient( to bottom,
     rgba(61, 55, 42, 0.2),
     rgba(207, 180, 117, 0.227),
     rgba(61, 55, 42, 0.2)

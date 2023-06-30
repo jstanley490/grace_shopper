@@ -16,12 +16,38 @@
   color: black;
   margin-right: 1rem;
   margin-left: 1rem;
+
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    rgb(109, 96, 62),
+    rgb(180, 133, 15) 50%,
+    black 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+.nav-link:hover {
+  background-position: 0 100%;
 }
 #nav-logo {
+  text-decoration: none;
+  color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: medium;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+#nav-logo:hover {
+  filter: drop-shadow(0.5rem 0.5rem 1rem black);
 }
 #logo {
   max-width: 35px;
