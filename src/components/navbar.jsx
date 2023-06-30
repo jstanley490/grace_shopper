@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 
 export default function Navbar({ token }) {
+  function handleLogout() {
+    console.log("logging out");
+    localStorage.removeItem("token");
+    setToken("");
+    setUser({});
+  }
+
   return (
     <div id="navbar">
       <Link to="/treats" className="nav-link">
@@ -28,6 +35,11 @@ export default function Navbar({ token }) {
           Account
         </Link>
       )}
+      {token ? (
+        <Link onClick={handleLogout} to={"/"} className="nav-link">
+          Logout
+        </Link>
+      ) : null}
     </div>
   );
 }
