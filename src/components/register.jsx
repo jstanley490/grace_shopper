@@ -7,6 +7,9 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmation, setConfirmation] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
   const { setToken } = useOutletContext();
@@ -22,7 +25,6 @@ export default function Register() {
   }
   async function handleRegister(e) {
     e.preventDefault();
-    console.log(username, password, confirmation);
 
     if (password !== confirmation) {
       setError("Password Incorrect");
@@ -36,13 +38,20 @@ export default function Register() {
       body: JSON.stringify({
         username: username,
         password: password,
+
       }),
     });
     const result = await response.json();
     console.log(result);
-
     localStorage.setItem("token", result.token);
     setToken(result.token);
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+      }),
+    });
+    const result = await response.json();
+    // console.log(result);
     if (result.error) {
       setError(result.message);
       return;
@@ -50,7 +59,7 @@ export default function Register() {
 
     setToken(result.token);
     localStorage.setItem("token", result.token);
-    // navigate("/");
+    navigate("/");
   }
   return (
     <div id="page" className="auth">
@@ -66,17 +75,40 @@ export default function Register() {
         <form onSubmit={handleRegister}>
           <input
             className="input"
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
+            placeholder="first name"
+            type="text"
+          />
+          <input
+            className="input"
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
+            placeholder="last name"
+            type="text"
+          />
+          <input
+            className="input"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            placeholder="email address"
+            type="email"
+          />
+          <input
+            className="input"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
             placeholder="username"
             type="username"
           />
+
           <input
             className="input"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             placeholder="password"
             type="password"
+            id="showInput"
           />
           <input
             className="input"
@@ -88,11 +120,11 @@ export default function Register() {
           <button type="submit" className="submit">
             Register
           </button>
-          <p className="err-msg"> {error} </p>
           <span id="show-pass">
             <input onClick={showPassword} type="checkbox" />
             Show password
           </span>
+          <p className="err-msg"> {error} </p>
         </form>
       </main>
     </div>
