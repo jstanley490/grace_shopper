@@ -8,13 +8,14 @@ import { Toaster } from "react-hot-toast";
 export default function Root() {
   const [token, setToken] = useState("");
   const [user, setUser] = useState({});
-
+  // console.log(user);
   useEffect(() => {
     async function fetchUser() {
+      // const { userId } = useParams();
       const localToken = localStorage.getItem("token");
       if (localToken) {
         setToken(localToken);
-        const response = await fetch(`${BASE_URL}/users/me`, {
+        const response = await fetch(`${BASE_URL}/users/${userId}`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localToken}`,
