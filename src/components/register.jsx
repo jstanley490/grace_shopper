@@ -33,13 +33,16 @@ export default function Register() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: {
+      body: JSON.stringify({
         username: username,
         password: password,
-      },
+      }),
     });
     const result = await response.json();
     console.log(result);
+
+    localStorage.setItem("token", result.token);
+    setToken(result.token);
     if (result.error) {
       setError(result.message);
       return;

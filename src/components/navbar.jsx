@@ -23,11 +23,6 @@ export default function Navbar({ token }) {
       <Link to="/login" className="nav-link">
         Account
       </Link>
-      {token ? (
-        <Link to="/profile" id="profile" className="nav-link">
-          Account
-        </Link>
-      ) : null}
     </div>
   );
 }

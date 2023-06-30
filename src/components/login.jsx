@@ -21,15 +21,15 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch(`${BASE_URL}/login`, {
+    const response = await fetch(`${BASE_URL}/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: {
+      body: JSON.stringify({
         username: username,
         password: password,
-      },
+      }),
     });
     const result = await response.json();
     if (result.error) {
