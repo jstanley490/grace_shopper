@@ -13,21 +13,21 @@ export default function Navbar({ token }) {
         <img
           src="../src/assets/logo.svg"
           alt="chocolate chip cookie with bite taken out of it"
-          id="logo"
-        ></img>
+          id="logo"></img>
         <sub>Munchiez</sub>
       </Link>
       <Link to="/cart" className="nav-link">
         Cart
       </Link>
-      <Link to="/login" className="nav-link">
-        Account
-      </Link>
       {token ? (
-        <Link to="/profile" id="profile" className="nav-link">
+        <Link to="/profile" className="nav-link">
           Account
         </Link>
-      ) : null}
+      ) : (
+        <Link to="/login" className="nav-link">
+          Account
+        </Link>
+      )}
     </div>
   );
 }
