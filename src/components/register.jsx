@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 
-// import { BASE_URL } from "../api/util";
+import { BASE_URL } from "../api/util";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -12,6 +12,14 @@ export default function Register() {
   const { setToken } = useOutletContext();
   const navigate = useNavigate();
 
+  function showPassword() {
+    var p = document.getElementById("showInput");
+    if (p.type === "password") {
+      p.type = "text";
+    } else {
+      p.type = "password";
+    }
+  }
   async function handleRegister(e) {
     e.preventDefault();
     console.log(username, password, confirmation);
@@ -25,10 +33,10 @@ export default function Register() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
+      body: {
+        username: username,
+        password: password,
+      },
     });
     const result = await response.json();
     console.log(result);
@@ -39,15 +47,19 @@ export default function Register() {
 
     setToken(result.token);
     localStorage.setItem("token", result.token);
-    navigate("/");
+    // navigate("/");
   }
   return (
     <div id="page" className="auth">
       <aside>
-        <Link to={"/login"}>Login</Link>
-        <h1>Register</h1>
+        <Link to={"/register"} className="account-link">
+          Register
+        </Link>
+        <Link to={"/login"} className="account-link">
+          Login
+        </Link>
       </aside>
-      <main>
+      <main id="main-register">
         <form onSubmit={handleRegister}>
           <input
             className="input"
@@ -74,6 +86,10 @@ export default function Register() {
             Register
           </button>
           <p className="err-msg"> {error} </p>
+          <span id="show-pass">
+            <input onClick={showPassword} type="checkbox" />
+            Show password
+          </span>
         </form>
       </main>
     </div>

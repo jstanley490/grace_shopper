@@ -3,11 +3,15 @@ body {
   /* background-color: #f4cf9ed6; */
   background-color: white;
   font-family: "Montserrat", sans-serif;
+  background-color: rgba(83, 66, 41, 0.294);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(61, 55, 42, 0.2),
+    rgba(207, 180, 117, 0.227),
+    rgba(61, 55, 42, 0.2)
+  );
 }
 #page {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   min-height: 100vh;
   padding: 2.5rem;
 }
