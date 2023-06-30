@@ -21,15 +21,15 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch(`${BASE_URL}/login`, {
+    const response = await fetch(`${BASE_URL}/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: {
+      body: JSON.stringify({
         username: username,
         password: password,
-      },
+      }),
     });
     const result = await response.json();
     if (result.error) {
@@ -37,7 +37,7 @@ export default function Login() {
       console.error(result.message);
       return;
     }
-    console.log(result);
+    // console.log(result);
     localStorage.setItem("token", result.token);
     setToken(result.token);
     navigate("/");
@@ -58,16 +58,14 @@ export default function Login() {
             onChange={(e) => setUsername(e.target.value)}
             value={username}
             placeholder="username"
-            className="input"
-          ></input>
+            className="input"></input>
           <input
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             placeholder="password"
             type={"password"}
             id="showInput"
-            className="input"
-          ></input>
+            className="input"></input>
           <button type="submit" className="submit">
             Login
           </button>

@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BASE_URL } from "./api/util";
 
 import { Toaster } from "react-hot-toast";
 
