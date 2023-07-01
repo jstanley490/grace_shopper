@@ -43,39 +43,41 @@ export default function Login() {
     navigate("/");
   }
   return (
-    <div id="page" className="auth">
-      <aside>
-        <Link to={"/register"} className="account-link">
-          Register
-        </Link>
-        <Link to={"/login"} className="account-link">
-          Login
-        </Link>
-      </aside>
-      <main id="main-login">
-        <form onSubmit={handleSubmit}>
-          <input
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            placeholder="username"
-            className="input"></input>
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            placeholder="password"
-            type={"password"}
-            id="showInput"
-            className="input"></input>
-          <button type="submit" className="submit">
+    <div id="page">
+      <div className="auth">
+        <aside>
+          <Link to={"/register"} className="account-link register">
+            Register
+          </Link>
+          <h1 to={"/login"} className="account-link login">
             Login
-          </button>
-          <p className="err-msg">{error}</p>
-          <span id="show-pass">
-            <input onClick={showPassword} type="checkbox" />
-            Show password
-          </span>
-        </form>
-      </main>
+          </h1>
+        </aside>
+        <main id="main-login">
+          <form onSubmit={handleSubmit}>
+            <input
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              placeholder="username"
+              className="input"></input>
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              placeholder="password"
+              type={"password"}
+              id="showInput"
+              className="input"></input>
+            <button type="submit" className="submit">
+              Login
+            </button>
+            <p className="err-msg">{error}</p>
+            <span id="show-pass">
+              <input onClick={showPassword} type="checkbox" />
+              Show password
+            </span>
+          </form>
+        </main>
+      </div>
     </div>
   );
 }

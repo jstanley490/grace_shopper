@@ -55,71 +55,73 @@ export default function Register() {
     navigate("/");
   }
   return (
-    <div id="page" className="auth">
-      <aside>
-        <Link to={"/register"} className="account-link">
-          Register
-        </Link>
-        <Link to={"/login"} className="account-link">
-          Login
-        </Link>
-      </aside>
-      <main id="main-register">
-        <form onSubmit={handleRegister}>
-          <input
-            className="input"
-            onChange={(e) => setFirstName(e.target.value)}
-            value={firstName}
-            placeholder="first name"
-            type="text"
-          />
-          <input
-            className="input"
-            onChange={(e) => setLastName(e.target.value)}
-            value={lastName}
-            placeholder="last name"
-            type="text"
-          />
-          <input
-            className="input"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            placeholder="email address"
-            type="email"
-          />
-          <input
-            className="input"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            placeholder="username"
-            type="username"
-          />
-
-          <input
-            className="input"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            placeholder="password"
-            type="password"
-            id="showInput"
-          />
-          <input
-            className="input"
-            onChange={(e) => setConfirmation(e.target.value)}
-            value={confirmation}
-            placeholder="confirm password"
-            type="confirmation"
-          />
-          <button type="submit" className="submit">
+    <div id="page">
+      <div className="auth">
+        <aside>
+          <h1 to={"/register"} className="account-link register">
             Register
-          </button>
-          <span id="show-pass">
-            <input onClick={showPassword} type="checkbox" />
-            Show password
-          </span>
-          <p className="err-msg"> {error} </p>
-        </form>
-      </main>
+          </h1>
+          <Link to={"/login"} className="account-link login">
+            Login
+          </Link>
+        </aside>
+        <main id="main-register">
+          <form onSubmit={handleRegister}>
+            <input
+              className="input"
+              onChange={(e) => setFirstName(e.target.value)}
+              value={firstName}
+              placeholder="first name"
+              type="text"
+            />
+            <input
+              className="input"
+              onChange={(e) => setLastName(e.target.value)}
+              value={lastName}
+              placeholder="last name"
+              type="text"
+            />
+            <input
+              className="input"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              placeholder="email address"
+              type="email"
+            />
+            <input
+              className="input"
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
+              placeholder="username"
+              type="username"
+            />
+
+            <input
+              className="input"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              placeholder="password"
+              type="password"
+              id="showInput"
+            />
+            <input
+              className="input"
+              onChange={(e) => setConfirmation(e.target.value)}
+              value={confirmation}
+              placeholder="confirm password"
+              type="confirmation"
+            />
+            <button type="submit" className="submit">
+              Register
+            </button>
+            <span id="show-pass">
+              <input onClick={showPassword} type="checkbox" />
+              Show password
+            </span>
+            <p className="err-msg"> {error} </p>
+          </form>
+        </main>
+      </div>{" "}
     </div>
   );
 }
