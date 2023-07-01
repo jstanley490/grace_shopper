@@ -22,9 +22,9 @@
   overflow: hidden;
   background: linear-gradient(
     to right,
-    rgb(109, 96, 62),
-    rgb(180, 133, 15) 50%,
-    black 50%
+    rgb(214 179 89),
+    rgb(224 167 23) 49%,
+    black 51%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -47,7 +47,7 @@
   margin-left: 1rem;
 }
 #nav-logo:hover {
-  filter: drop-shadow(0.5rem 0.5rem 1rem black);
+  filter: drop-shadow(0.25rem 0.25rem 0.2rem rgba(199, 148, 21, 0.771));
 }
 #logo {
   max-width: 35px;

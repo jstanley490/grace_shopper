@@ -1,3 +1,10 @@
 export default function HomePage() {
-  return <div id="page">hello world</div>;
+  return (
+    <>
+      <div className="background-img"></div>
+      <div id="page">
+        <h1>hello world</h1>
+      </div>
+    </>
+  );
 }
