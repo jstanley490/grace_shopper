@@ -8,6 +8,8 @@ import { Toaster } from "react-hot-toast";
 export default function Root() {
   const [token, setToken] = useState("");
   const [user, setUser] = useState({});
+  const [treats, setTreats] = useState([]);
+  const [merch, setMerch] = useState([]);
 
   useEffect(() => {
     async function fetchUser() {
@@ -30,11 +32,33 @@ export default function Root() {
     fetchUser();
   }, [token]);
 
+  useEffect(() => {
+    async function getTreats() {
+      const response = await fetch(`${BASE_URL}/treats`);
+      const treats = await response.json();
+      // console.log(treats);
+      setTreats(treats);
+    }
+    getTreats();
+  }, [treats]);
+
+  useEffect(() => {
+    async function getMerch() {
+      const response = await fetch(`${BASE_URL}/merch`);
+      const merch = await response.json();
+      // console.log(merch);
+      setMerch(merch);
+    }
+    getMerch();
+  }, [merch]);
+
   return (
     <div>
       <Navbar token={token} setToken={setToken} />
       <Toaster position="bottom-center" />
-      <Outlet context={{ token, setToken }} />
+      <Outlet
+        context={{ token, setToken, treats, setTreats, merch, setMerch }}
+      />
     </div>
   );
 }
