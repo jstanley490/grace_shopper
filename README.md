@@ -37,6 +37,7 @@ This is our main folder within the repository that houses all of our main code. 
 # Routes
 
 ## This is all of our routes.
+
 * ```Register```
 * ```Login```
 * ```Homepage```
@@ -86,7 +87,7 @@ This is our main folder within the repository that houses all of our main code. 
 
 * Within this folder you will find all of our ```COMPONENTS``` and how they work!
 
-###### A list of all of our components are as follows:
+## A list of all of our components are as follows:
 
 * ```Register```
 * ```Login```
