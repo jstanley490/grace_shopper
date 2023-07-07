@@ -40,7 +40,7 @@ export default function Root() {
       setTreats(treats);
     }
     getTreats();
-  }, [treats]);
+  }, []);
 
   useEffect(() => {
     async function getMerch() {
@@ -50,7 +50,7 @@ export default function Root() {
       setMerch(merch);
     }
     getMerch();
-  }, [merch]);
+  }, []);
 
   return (
     <div>

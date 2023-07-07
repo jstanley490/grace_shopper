@@ -4,22 +4,27 @@ import { useOutletContext, useNavigate, useParams } from "react-router-dom";
 export default function IndividualMerch() {
   const { merchId } = useParams();
   const { merch } = useOutletContext();
-  const post = merch.find((item) => item.id === merchId);
-  console.log(merch);
-  console.log(post);
+  const product = merch.find((item) => item.id == merchId);
+  console.log(product);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!post) {
+    if (!product) {
       navigate("/merch");
     }
-  }, []);
+  }, [merch]);
+
+  if (!product) {
+    return <div id="page">Loading...</div>; // Return null or a loading state while waiting for the product data
+  }
 
   return (
     <div id="page">
-      hello world
-      {post.color} {post.type}
+      <h1>{product.type}</h1>
+      <p>{product.price}</p>
+      <p>{product.color}</p>
+      <p>{product.size}</p>
     </div>
   );
 }
