@@ -115,5 +115,5 @@ This is our main folder within the repository that houses all of our main code. 
 
 * This file will show you all of our scripts and dependencies.
 
-## *Video on how we built our backend* ~~Trust me~~ :point_down: :wink:
+## *Video on how we built our front end* ~~Trust me~~ :point_down: :wink:
 https://www.youtube.com/watch?v=dQw4w9WgXcQ
