@@ -4,6 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./styles/index.css";
 import "./styles/navbar.css";
 import "./styles/account-form.css";
+import "./styles/listings.css";
+// import "./styles/cart.css";
 import Root from "./root";
 import ErrorPage from "./error-page";
 import Homepage from "./components/homepage";
@@ -31,11 +33,11 @@ const router = createBrowserRouter([
         element: <Homepage />,
       },
       {
-        path: "/individualMerch",
+        path: "/:merchId",
         element: <IndividualMerch />,
       },
       {
-        path: "/individualTreat",
+        path: "/:treatId",
         element: <IndividualTreat />,
       },
       {
