@@ -12,6 +12,9 @@ Within this website, you will be able to register a user, login as a user, selec
 
 ### Problems? Please let us know!
 
+## Click here to view our ```E-Commerce Website!``` 👇
+* ```https://delicate-piroshki-498b37.netlify.app/```
+
 If you run into any problems or issues, **please** let us know so we can address and fix them right away.
 
 # Getting Started
@@ -115,5 +118,5 @@ This is our main folder within the repository that houses all of our main code. 
 
 * This file will show you all of our scripts and dependencies.
 
-## *Video on how we built our front end.* ~~Trust me~~ :point_down: :wink:
-https://www.youtube.com/watch?v=dQw4w9WgXcQ
+## *Click this link to go to our back end repository!* 👇👇😃😃
+* ```https://github.com/Blizzrard/graceShopperBackend/tree/main```
