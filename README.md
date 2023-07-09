@@ -5,13 +5,13 @@
 Within this website, you will be able to register a user, login as a user, select and add treats and/or merchandise to your cart and checkout with your cart!
 
 * To use the correct features within app, make sure you are logged in correctly as either admin or user.
-  
-## *Click here to view our ```E-Commerce Website!```* 👇
-* [```Team Munchies E-Commerce Website!```](https://delicate-piroshki-498b37.netlify.app/)
 
 # Problems? Please let us know!
 
 * If you run into any problems or issues, **please** let us know so we can address and fix them right away.
+  
+## *Click here to view our ```E-Commerce Website!```* 👇
+* [```Team Munchies E-Commerce Website!```](https://delicate-piroshki-498b37.netlify.app/)
 
 # Getting Started
 * Install Packages:
