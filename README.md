@@ -7,7 +7,7 @@ Within this website, you will be able to register a user, login as a user, selec
 * To use the correct features within app, make sure you are logged in correctly as either admin or user.
   
 ## *Click here to view our ```E-Commerce Website!```* 👇
-* ```https://delicate-piroshki-498b37.netlify.app/```
+[Back End Repository E-Commerce Website](```https://delicate-piroshki-498b37.netlify.app/```)
 
 # Problems? Please let us know!
 
