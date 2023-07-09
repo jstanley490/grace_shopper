@@ -5,17 +5,13 @@
 Within this website, you will be able to register a user, login as a user, select and add treats and/or merchandise to your cart and checkout with your cart!
 
 * To use the correct features within app, make sure you are logged in correctly as either admin or user.
-
-* For **light editor themes** look at `visualstudio`, `github`, or `xcode`.
-
-* For **dark editor themes** look at `vscodedark`, `twilight`, `monokai`, or `terminal`.
-
-### Problems? Please let us know!
-
-## Click here to view our ```E-Commerce Website!``` 👇
+  
+## *Click here to view our ```E-Commerce Website!```* 👇
 * ```https://delicate-piroshki-498b37.netlify.app/```
 
-If you run into any problems or issues, **please** let us know so we can address and fix them right away.
+# Problems? Please let us know!
+
+* If you run into any problems or issues, **please** let us know so we can address and fix them right away.
 
 # Getting Started
 * Install Packages:
@@ -118,5 +114,5 @@ This is our main folder within the repository that houses all of our main code. 
 
 * This file will show you all of our scripts and dependencies.
 
-## *Click this link to go to our back end repository!* 👇👇😃😃
+## *Click this link to go to our back end repository!* 👇
 * ```https://github.com/Blizzrard/graceShopperBackend/tree/main```
