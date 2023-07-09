@@ -114,5 +114,5 @@ This is our main folder within the repository that houses all of our main code. 
 
 * This file will show you all of our scripts and dependencies.
 
-## *Click this link to go to our back end repository!* 👇
+## *Click here to go to our back end repository!* 👇
 * [```Team Munchies Back End Repository!```](https://github.com/Blizzrard/graceShopperBackend/tree/main)
