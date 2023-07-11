@@ -16,7 +16,7 @@ export default function IndividualMerch() {
   }, [merch]);
 
   if (!product) {
-    return <div id="page">Loading...</div>; // Return null or a loading state while waiting for the product data
+    return <div id="page">Loading...</div>;
   }
 
   return (
@@ -25,6 +25,7 @@ export default function IndividualMerch() {
       <p>{product.price}</p>
       <p>{product.color}</p>
       <p>{product.size}</p>
+      <button>add to cart</button>
     </div>
   );
 }
