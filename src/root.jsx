@@ -10,6 +10,7 @@ export default function Root() {
   const [user, setUser] = useState({});
   const [treats, setTreats] = useState([]);
   const [merch, setMerch] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     async function fetchUser() {
@@ -52,12 +53,59 @@ export default function Root() {
     getMerch();
   }, [merch]);
 
+  useEffect(() => {
+    async function fetchCart() {
+      const localToken = localStorage.getItem("token");
+      if (localToken) {
+        setToken(localToken);
+        const response = await fetch(`${BASE_URL}/cart`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localToken}`,
+          },
+        });
+        const cartItems = await response.json();
+        // console.log(cartItems);
+        setCartItems(cartItems);
+      }
+    }
+    fetchCart();
+  }, [token]);
+
+  useEffect(() => {
+    async function DeleteCartItem() {
+      const localToken = localStorage.getItem("token");
+      if (localToken) {
+        setToken(localToken);
+        const response = await fetch(`${BASE_URL}/cart`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localToken}`,
+          },
+        });
+        const cartItems = await response.json();
+        // console.log(cartItems);
+        setCartItems(cartItems);
+      }
+    }
+    DeleteCartItem();
+  }, [token]);
+
   return (
     <div>
       <Navbar token={token} setToken={setToken} />
       <Toaster position="bottom-center" />
       <Outlet
-        context={{ token, setToken, treats, setTreats, merch, setMerch }}
+        context={{
+          token,
+          setToken,
+          treats,
+          setTreats,
+          merch,
+          setMerch,
+          cartItems,
+          setCartItems,
+        }}
       />
     </div>
   );

@@ -1,0 +1,13 @@
+.remove-item {
+  background-color: rgb(236, 31, 31);
+  color: white;
+  width: 50%;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.product-list {
+  width: 60vw;
+  height: 40vh;
+  overflow: auto;
+}
