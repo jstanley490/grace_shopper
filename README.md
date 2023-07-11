@@ -6,13 +6,12 @@ Within this website, you will be able to register a user, login as a user, selec
 
 * To use the correct features within app, make sure you are logged in correctly as either admin or user.
 
-* For **light editor themes** look at `visualstudio`, `github`, or `xcode`.
+# Problems? Please let us know!
 
-* For **dark editor themes** look at `vscodedark`, `twilight`, `monokai`, or `terminal`.
-
-### Problems? Please let us know!
-
-If you run into any problems or issues, **please** let us know so we can address and fix them right away.
+* If you run into any problems or issues, **please** let us know so we can address and fix them right away.
+  
+## *Click here to view our ```E-Commerce Website!```* 👇
+* [```Team Munchies E-Commerce Website!```](https://delicate-piroshki-498b37.netlify.app/)
 
 # Getting Started
 * Install Packages:
@@ -115,5 +114,5 @@ This is our main folder within the repository that houses all of our main code. 
 
 * This file will show you all of our scripts and dependencies.
 
-## *Video on how we built our front end.* ~~Trust me~~ :point_down: :wink:
-https://www.youtube.com/watch?v=dQw4w9WgXcQ
+## *Click here to view our ```back end``` repository!* 👇
+* [```Team Munchies Back End Repository!```](https://github.com/Blizzrard/graceShopperBackend/tree/main)

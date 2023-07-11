@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         element: <Homepage />,
       },
       {
-        path: "/:merchId",
+        path: "/merch/:merchId",
         element: <IndividualMerch />,
       },
       {
