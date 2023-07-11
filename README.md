@@ -4,7 +4,9 @@
 
 Within this website, you will be able to register a user, login as a user, select and add treats and/or merchandise to your cart and checkout with your cart!
 
-* To use the correct features within app, make sure you are logged in correctly as either admin or user.
+* Built by ```Jeremy Stanley```, ```Mike Wadsworth```, ```Isaac Fernandez```, and ```Jason Buller```.
+
+* To use the correct features within app, make sure you are logged in correctly as either ```admin``` or ```user```.
 
 # Problems? Please let us know!
 
