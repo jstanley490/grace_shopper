@@ -37,7 +37,7 @@ This is our main folder within the repository that houses all of our main code. 
 
 # Routes
 
-## This is all of our routes.
+### This is all of our routes.
 
 * ```Register```
 * ```Login```
