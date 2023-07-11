@@ -43,7 +43,7 @@ export default function Login() {
     navigate("/");
   }
   return (
-    <div id="page">
+    <div id="login-page">
       <div className="auth">
         <aside>
           <Link to={"/register"} className="account-link register">
