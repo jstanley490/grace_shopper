@@ -55,7 +55,7 @@ export default function Register() {
     navigate("/");
   }
   return (
-    <div id="page">
+    <div id="login-page">
       <div className="auth">
         <aside>
           <h1 to={"/register"} className="account-link register">

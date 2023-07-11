@@ -18,7 +18,7 @@ export default function Navbar({ token }) {
       </Link>
       <Link to="/" id="nav-logo">
         <img
-          src="../src/assets/logo.svg"
+          src="../assets/logo.svg"
           alt="chocolate chip cookie with bite taken out of it"
           id="logo"></img>
         <sub>Munchiez</sub>

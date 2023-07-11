@@ -5,6 +5,7 @@ import "./styles/index.css";
 import "./styles/navbar.css";
 import "./styles/account-form.css";
 import "./styles/cart.css";
+import "./styles/listings.css";
 import Root from "./root";
 import ErrorPage from "./error-page";
 import Homepage from "./components/homepage";
@@ -32,11 +33,11 @@ const router = createBrowserRouter([
         element: <Homepage />,
       },
       {
-        path: "/individualMerch",
+        path: "/merch/:merchId",
         element: <IndividualMerch />,
       },
       {
-        path: "/individualTreat",
+        path: "/:treatId",
         element: <IndividualTreat />,
       },
       {
