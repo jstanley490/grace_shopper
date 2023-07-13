@@ -1,13 +1,29 @@
+#page {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+}
+
+.item-link {
+  text-decoration: none;
+}
+.cart-photo {
+  width: 20%;
+}
 .remove-item {
   background-color: rgb(236, 31, 31);
   color: white;
-  width: 50%;
+  width: 10%;
   padding: 6px;
   border-radius: 6px;
 }
 
 .product-list {
   width: 60vw;
-  height: 40vh;
+  height: 60vh;
   overflow: auto;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
 }
