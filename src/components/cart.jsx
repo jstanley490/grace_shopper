@@ -44,7 +44,7 @@ export default function Cart() {
     );
   }
   return (
-    <div id="page">
+    <div id="cart-page">
       <div id="products">
         <h2>Cart</h2>
         <div className="product-list">
@@ -61,8 +61,7 @@ export default function Cart() {
                 <p className="treat-price">{cartItem.price}</p>
                 <button
                   onClick={() => deleteCartItem(cartItem.id)}
-                  className="remove-item"
-                >
+                  className="remove-item">
                   Remove Item
                 </button>
               </div>

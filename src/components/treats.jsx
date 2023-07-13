@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-import { addToCart } from "../api/util";
+// import { addToCart } from "../api/util";
 
 export default function Treats() {
   const { treats } = useOutletContext();
