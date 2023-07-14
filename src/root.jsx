@@ -65,7 +65,6 @@ export default function Root() {
           },
         });
         const cartItems = await response.json();
-        // console.log(cartItems);
         setCartItems(cartItems);
       }
     }

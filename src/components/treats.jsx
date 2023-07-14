@@ -1,5 +1,5 @@
 import { useOutletContext } from "react-router-dom";
-// import { addToCart } from "../api/util";
+import { addToCart } from "../api/util";
 
 export default function Treats() {
   const { treats } = useOutletContext();
@@ -19,7 +19,11 @@ export default function Treats() {
                 <span className="purchase-details">
                   <p>{treat.price}</p>
                   <p>Inventory: {treat.stock}</p>
-                  <span onClick={() => addToCart(treat.id, "treats", 1)}>
+                  <span
+                    onClick={() => {
+                      addToCart(treat.id, "treats", 1);
+                    }}
+                  >
                     <i className="fa-solid fa-cart-plus add-cart"></i>
                   </span>
                 </span>

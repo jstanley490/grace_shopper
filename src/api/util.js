@@ -16,15 +16,17 @@ export const addToCart = async (productId, type, quant) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localToken}`,
       },
       body: JSON.stringify({
-        ProductType: { type },
-        ProductId: { productId },
-        quantity: { quant },
+        productType: type,
+        productId: productId,
+        quantity: quant,
       }),
     });
     console.log("awaiting response");
     const result = await response.json();
     console.log(result);
+    localStorage.setItem("cart", JSON.stringify(result));
   }
 };
