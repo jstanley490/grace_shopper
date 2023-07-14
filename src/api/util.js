@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 
 export const BASE_URL = "http://localhost:3000/api";
+=======
+export const BASE_URL = "https://graceshopperdatabase.onrender.com/api";
+>>>>>>> origin/Jason
 
 export const addToCart = async (productId, type, quant) => {
   console.log(type);
@@ -27,7 +31,13 @@ export const addToCart = async (productId, type, quant) => {
       }),
     });
     console.log("awaiting response");
+<<<<<<< HEAD
     const result = await response.json();
+=======
+    console.log(response, "this is response");
+    const result = await response.json();
+    console.log(result, "why bro");
+>>>>>>> origin/Jason
     localStorage.setItem("cart", JSON.stringify(result));
     return result;
   }
@@ -46,6 +56,7 @@ export async function fetchCart() {
     return cartItems;
   }
 }
+<<<<<<< HEAD
 
 export async function updateCart(quantity, cartId) {
   const localToken = localStorage.getItem("token");
@@ -98,3 +109,5 @@ export async function removeFromCart(cartId) {
     return response;
   } catch (error) {}
 }
+=======
+>>>>>>> origin/Jason
