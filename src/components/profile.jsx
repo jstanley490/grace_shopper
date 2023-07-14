@@ -1,3 +1,7 @@
 export default function Profile() {
-  return <div id="page">profile</div>;
+  return (
+    <h1>
+      <div id="page">Welcome to your account!</div>
+    </h1>
+  );
 }
