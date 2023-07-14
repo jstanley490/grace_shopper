@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000/api";
+export const BASE_URL = "https://graceshopperdatabase.onrender.com/api";
 
 export const addToCart = async (productId, type, quant) => {
   console.log(type);
