@@ -5,6 +5,7 @@ import { BASE_URL } from "../api/util";
 export default function Cart() {
   const { user, setUser, cartItems, setCartItems, token, setToken } =
     useOutletContext();
+  console.log(cartItems);
 
   const calculateTotalPrice = (cartItems) => {
     let totalPrice = 0;
@@ -43,13 +44,13 @@ export default function Cart() {
       </div>
     );
   }
+
   return (
     <div id="cart-page">
       <div id="products">
         <h2>Cart</h2>
         <div className="product-list">
           {cartItems.map((cartItem) => {
-            console.log(cartItems);
             return (
               <div className="activity-post" key={cartItem.id}>
                 <Link className="item-link" to={`/merch/${cartItem.id}`}>
@@ -61,7 +62,8 @@ export default function Cart() {
                 <p className="treat-price">{cartItem.price}</p>
                 <button
                   onClick={() => deleteCartItem(cartItem.id)}
-                  className="remove-item">
+                  className="remove-item"
+                >
                   Remove Item
                 </button>
               </div>

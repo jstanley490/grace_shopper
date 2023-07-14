@@ -21,7 +21,8 @@ export default function Navbar({ token }) {
         <img
           src={Logo}
           alt="chocolate chip cookie with bite taken out of it"
-          id="logo"></img>
+          id="logo"
+        ></img>
         <sub>Munchiez</sub>
       </Link>
       <Link to="/cart" className="nav-link">

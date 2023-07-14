@@ -1,8 +1,13 @@
 import { useOutletContext } from "react-router-dom";
-// import { addToCart } from "../api/util";
+import { addToCart, fetchCart } from "../api/util";
+import { useEffect } from "react";
 
 export default function Treats() {
-  const { treats } = useOutletContext();
+  const { treats, setCartItems, cartItems, fetchCart } = useOutletContext();
+
+  useEffect(() => {
+    Promise.all([]);
+  });
 
   return (
     <div id="page">
