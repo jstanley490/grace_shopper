@@ -1,8 +1,13 @@
 import { useOutletContext } from "react-router-dom";
-import { addToCart } from "../api/util";
+import { addToCart, fetchCart } from "../api/util";
+import { useEffect } from "react";
 
 export default function Treats() {
-  const { treats } = useOutletContext();
+  const { treats, setCartItems, cartItems, fetchCart } = useOutletContext();
+
+  useEffect(() => {
+    Promise.all([]);
+  });
 
   return (
     <div id="page">
@@ -20,8 +25,15 @@ export default function Treats() {
                   <p>{treat.price}</p>
                   <p>Inventory: {treat.stock}</p>
                   <span
-                    onClick={() => {
-                      addToCart(treat.id, "treats", 1);
+                    onClick={async () => {
+                      const response = await addToCart(treat.id, "treat", 1);
+                      if (response) {
+                        const newCart = await fetchCart();
+                        if (newCart) {
+                          setCartItems(newCart);
+                          console.log(cartItems);
+                        }
+                      }
                     }}
                   >
                     <i className="fa-solid fa-cart-plus add-cart"></i>

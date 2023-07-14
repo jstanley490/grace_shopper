@@ -1,4 +1,4 @@
-export const BASE_URL = "https://graceshopperdatabase.onrender.com/api";
+export const BASE_URL = "http://localhost:3000/api";
 
 export const addToCart = async (productId, type, quant) => {
   console.log(type);
@@ -25,8 +25,24 @@ export const addToCart = async (productId, type, quant) => {
       }),
     });
     console.log("awaiting response");
+    console.log(response, "this is response");
     const result = await response.json();
-    console.log(result);
+    console.log(result, "why bro");
     localStorage.setItem("cart", JSON.stringify(result));
+    return result;
   }
 };
+
+export async function fetchCart() {
+  const localToken = localStorage.getItem("token");
+  if (localToken) {
+    const response = await fetch(`${BASE_URL}/cart`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localToken}`,
+      },
+    });
+    const cartItems = await response.json();
+    return cartItems;
+  }
+}

@@ -5,6 +5,7 @@ import { BASE_URL } from "../api/util";
 export default function Cart() {
   const { user, setUser, cartItems, setCartItems, token, setToken } =
     useOutletContext();
+  console.log(cartItems);
 
   const calculateTotalPrice = (cartItems) => {
     let totalPrice = 0;
