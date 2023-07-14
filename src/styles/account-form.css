@@ -1,0 +1,86 @@
+.auth {
+  max-width: 600px;
+}
+
+/* login & register buttons */
+aside {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(242, 242, 242);
+  border-radius: 3px 3px 0 0;
+  filter: drop-shadow(2px 2px 0.75rem rgb(76, 75, 75));
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+}
+aside > a {
+  background-color: rgb(213, 213, 213);
+  border-bottom: 1px solid black;
+}
+aside > h1 {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 400;
+}
+.account-link {
+  text-decoration: none;
+  font-size: 50px;
+  color: black;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.login {
+  margin: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.register {
+  border-right: 1px solid black;
+  margin: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+main {
+  display: flex;
+  padding: 4rem;
+  background-color: rgb(242, 242, 242);
+  border-radius: 0 0 3px 3px;
+  filter: drop-shadow(0.5px 0.5px 0.5px rgb(110, 96, 3));
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+#show-pass {
+  padding: 5px;
+}
+
+form {
+  width: 200px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(2px 2px 0.75rem rgb(76, 75, 75));
+}
+.input {
+  width: 100%;
+  padding: 4px;
+  border-radius: 6px;
+}
+.submit {
+  width: 50%;
+  padding: 6px;
+  border-radius: 6px;
+}
+.submit:hover {
+  box-shadow: 0.45rem 0.45rem 0.75rem grey;
+}
+input[type="checkbox"] {
+  height: 14px;
+  width: 14px;
+}
