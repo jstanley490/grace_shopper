@@ -1,15 +1,19 @@
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { addToCart, fetchCart, updateCart } from "../api/util";
 import { useEffect } from "react";
 
 export default function Treats() {
   const { treats, setCartItems, cartItems, fetchCart } = useOutletContext();
-  const cart = localStorage.getItem("cart");
-  useEffect(() => {
-    Promise.all([fetchCart()]).then((values) => {
-      setCartItems(values[0]);
-    });
-  }, []);
+  const navigate = useNavigate();
+  // useEffect(() => {
+  //   Promise.all([fetchCart()]).then((values) => {
+  //     setCartItems(values[0]);
+  //   });
+  // }, []);
+  console.log(cartItems);
+  if (!cartItems || cartItems === undefined) {
+    setCartItems({ true: "ay" });
+  }
   return (
     <div id="page">
       <div id="treats-background">
@@ -42,18 +46,46 @@ export default function Treats() {
                               );
 
                               if (response) {
-                                const newCart = fetchCart();
+                                const newCart = await fetchCart();
                                 if (newCart) {
                                   //setCartItems(newCart);
                                   document.getElementById(
                                     `cartItem${cartItems[key].id}`
                                   ).innerText = cartItems[key].quantity;
+                                  localStorage.setItem(
+                                    "cart",
+                                    JSON.stringify(newCart)
+                                  );
                                 }
                               }
                             }}
                             className="fa-solid fa-plus"
                           >
-                            <i className="fa-solid fa-minus"></i>
+                            <i
+                              onClick={async () => {
+                                cartItems[key].quantity--;
+                                console.log(cartItems[key].quantity--);
+                                const response = await updateCart(
+                                  cartItems[key].quantity,
+                                  cartItems[key].id
+                                );
+
+                                if (response) {
+                                  const newCart = await fetchCart();
+                                  if (newCart) {
+                                    //setCartItems(newCart);
+                                    document.getElementById(
+                                      `cartItem${cartItems[key].id}`
+                                    ).innerText = cartItems[key].quantity;
+                                    localStorage.setItem(
+                                      "cart",
+                                      JSON.stringify(newCart)
+                                    );
+                                  }
+                                }
+                              }}
+                              className="fa-solid fa-minus"
+                            ></i>
                           </i>
                           <p id={`cartItem${cartItems[key].id}`}>
                             {cartItems[key].quantity}
@@ -77,10 +109,15 @@ export default function Treats() {
                   <span
                     onClick={async () => {
                       const response = await addToCart(treat.id, "treat", 1);
+                      console.log(response);
+                      if (!response) {
+                        navigate("../login");
+                      }
                       if (response) {
                         const newCart = await fetchCart();
                         if (newCart) {
                           setCartItems(newCart);
+                          localStorage.setItem("cart", JSON.stringify(newCart));
                         }
                       }
                     }}

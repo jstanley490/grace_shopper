@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 export const BASE_URL = "http://localhost:3000/api";
 
 export const addToCart = async (productId, type, quant) => {
@@ -60,6 +62,21 @@ export async function updateCart(quantity, cartId) {
       }),
     });
     console.log(response);
+    return response;
+  } catch (error) {}
+}
+
+export async function checkout() {
+  const localToken = localStorage.getItem("token");
+
+  try {
+    const response = await fetch(`${BASE_URL}/cart/checkout`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localToken}`,
+      },
+    });
     return response;
   } catch (error) {}
 }
