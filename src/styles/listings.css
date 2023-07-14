@@ -72,6 +72,11 @@ h1 {
 .add-cart {
   margin: 18px;
 }
+.fa-plus,
+.fa-minus {
+  margin: 0px;
+  padding: 5px;
+}
 
 /* Media Queriies */
 

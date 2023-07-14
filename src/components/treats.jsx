@@ -1,5 +1,5 @@
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { addToCart, fetchCart, updateCart } from "../api/util";
+import { addToCart, fetchCart, removeFromCart, updateCart } from "../api/util";
 import { useEffect } from "react";
 
 export default function Treats() {
@@ -60,33 +60,45 @@ export default function Treats() {
                               }
                             }}
                             className="fa-solid fa-plus"
-                          >
-                            <i
-                              onClick={async () => {
-                                cartItems[key].quantity--;
-                                console.log(cartItems[key].quantity--);
-                                const response = await updateCart(
-                                  cartItems[key].quantity,
+                          ></i>
+                          <i
+                            onClick={async () => {
+                              cartItems[key].quantity--;
+                              console.log(cartItems[key].quantity);
+                              if (cartItems[key].quantity === 0) {
+                                const response = await removeFromCart(
                                   cartItems[key].id
                                 );
-
                                 if (response) {
+                                  delete cartItems[key];
                                   const newCart = await fetchCart();
                                   if (newCart) {
-                                    //setCartItems(newCart);
-                                    document.getElementById(
-                                      `cartItem${cartItems[key].id}`
-                                    ).innerText = cartItems[key].quantity;
-                                    localStorage.setItem(
-                                      "cart",
-                                      JSON.stringify(newCart)
-                                    );
+                                    setCartItems(newCart);
                                   }
                                 }
-                              }}
-                              className="fa-solid fa-minus"
-                            ></i>
-                          </i>
+                              }
+                              const response = await updateCart(
+                                cartItems[key].quantity,
+                                cartItems[key].id
+                              );
+
+                              if (response) {
+                                const newCart = await fetchCart();
+                                if (newCart) {
+                                  //setCartItems(newCart);
+                                  document.getElementById(
+                                    `cartItem${cartItems[key].id}`
+                                  ).innerText = cartItems[key].quantity;
+                                  localStorage.setItem(
+                                    "cart",
+                                    JSON.stringify(newCart)
+                                  );
+                                }
+                              }
+                            }}
+                            className="fa-solid fa-minus"
+                          ></i>
+
                           <p id={`cartItem${cartItems[key].id}`}>
                             {cartItems[key].quantity}
                           </p>

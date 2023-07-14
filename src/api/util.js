@@ -80,3 +80,21 @@ export async function checkout() {
     return response;
   } catch (error) {}
 }
+
+export async function removeFromCart(cartId) {
+  const localToken = localStorage.getItem("token");
+
+  try {
+    const response = await fetch(`${BASE_URL}/cart`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localToken}`,
+      },
+      body: JSON.stringify({
+        cartId: cartId,
+      }),
+    });
+    return response;
+  } catch (error) {}
+}
