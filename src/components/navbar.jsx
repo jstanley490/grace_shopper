@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 export default function Navbar({ token }) {
   function handleLogout() {
@@ -18,9 +19,10 @@ export default function Navbar({ token }) {
       </Link>
       <Link to="/" id="nav-logo">
         <img
-          src="../assets/logo.svg"
+          src={logo}
           alt="chocolate chip cookie with bite taken out of it"
-          id="logo"></img>
+          id="logo"
+        ></img>
         <sub>Munchiez</sub>
       </Link>
       <Link to="/cart" className="nav-link">

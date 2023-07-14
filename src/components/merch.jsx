@@ -2,6 +2,7 @@ import { Link, useOutletContext } from "react-router-dom";
 
 export default function Merch() {
   const { merch } = useOutletContext();
+  console.log(merch);
 
   return (
     <div id="page">
