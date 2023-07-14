@@ -25,9 +25,7 @@ export const addToCart = async (productId, type, quant) => {
       }),
     });
     console.log("awaiting response");
-    console.log(response, "this is response");
     const result = await response.json();
-    console.log(result, "why bro");
     localStorage.setItem("cart", JSON.stringify(result));
     return result;
   }
@@ -45,4 +43,23 @@ export async function fetchCart() {
     const cartItems = await response.json();
     return cartItems;
   }
+}
+
+export async function updateCart(quantity, cartId) {
+  const localToken = localStorage.getItem("token");
+  try {
+    const response = await fetch(`${BASE_URL}/cart`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localToken}`,
+      },
+      body: JSON.stringify({
+        quantity: quantity,
+        cartId: cartId,
+      }),
+    });
+    console.log(response);
+    return response;
+  } catch (error) {}
 }
