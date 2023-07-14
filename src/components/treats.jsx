@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { addToCart, fetchCart, removeFromCart, updateCart } from "../api/util";
-=======
-import { useOutletContext } from "react-router-dom";
-import { addToCart, fetchCart } from "../api/util";
->>>>>>> origin/Jason
 import { useEffect } from "react";
 
 export default function Treats() {
   const { treats, setCartItems, cartItems, fetchCart } = useOutletContext();
-<<<<<<< HEAD
   const navigate = useNavigate();
   // useEffect(() => {
   //   Promise.all([fetchCart()]).then((values) => {
@@ -20,13 +14,6 @@ export default function Treats() {
   if (!cartItems || cartItems === undefined) {
     setCartItems({ true: "ay" });
   }
-=======
-
-  useEffect(() => {
-    Promise.all([]);
-  });
-
->>>>>>> origin/Jason
   return (
     <div id="page">
       <div id="treats-background">
@@ -35,7 +22,6 @@ export default function Treats() {
       <div className="page-body">
         <div className="listings">
           {treats.map((treat) => {
-<<<<<<< HEAD
             for (let key in cartItems) {
               if (cartItems[key].product_id === treat.id) {
                 if (
@@ -125,14 +111,11 @@ export default function Treats() {
                 }
               }
             }
-=======
->>>>>>> origin/Jason
             // console.log(treat);
             return (
               <div className="post" key={treat.id}>
                 <img src={treat.photo} className="post-img"></img>
                 <span className="purchase-details">
-<<<<<<< HEAD
                   <p>{treat.price}</p>
                   <p>Inventory: {treat.stock}</p>
                   <span
@@ -156,26 +139,6 @@ export default function Treats() {
                 </span>
                 <h2>{treat.name}</h2>
                 <p>{treat.description}</p>
-=======
-                  <h5>
-                    <p>{treat.price}</p>
-                  </h5>
-                  <h5>
-                    <p>Inventory: {treat.stock}</p>
-                  </h5>
-                  <span onClick={() => addToCart(treat.id, "treats", 1)}>
-                    <i className="fa-solid fa-cart-plus add-cart"></i>
-                  </span>
-                </span>
-                <u>
-                  <i>
-                    <h1>{treat.name}</h1>
-                  </i>
-                </u>
-                <h5>
-                  <p>{treat.description}</p>
-                </h5>
->>>>>>> origin/Jason
               </div>
             );
           })}

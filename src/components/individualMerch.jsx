@@ -28,11 +28,6 @@ export default function IndividualMerch() {
   return (
     <div id="page">
       <h1>{product.type}</h1>
-<<<<<<< HEAD
-      <p>{product.price}</p>
-      <p>{product.color}</p>
-      <p>{product.size}</p>
-=======
       <h3>
         <u>
           <p>{product.price}</p>
@@ -48,7 +43,6 @@ export default function IndividualMerch() {
           <p>{product.size}</p>
         </u>
       </h3>
->>>>>>> origin/Jason
       <span onClick={() => addToCart(product.id, "merch", 1)}>
         <i className="fa-solid fa-cart-plus add-cart"></i>
       </span>
