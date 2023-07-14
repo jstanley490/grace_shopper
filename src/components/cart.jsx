@@ -60,7 +60,15 @@ export default function Cart() {
                 <p>Quantity: {cartItem.quantity}</p>
                 <p className="treat-price">{cartItem.price}</p>
                 <button
-                  onClick={() => removeFromCart(cartItem.id)}
+                  onClick={async () => {
+                    const response = await removeFromCart(cartItem.id);
+                    if (response) {
+                      const newCart = await fetchCart();
+                      if (newCart) {
+                        setCartItems(newCart);
+                      }
+                    }
+                  }}
                   className="remove-item"
                 >
                   Remove Item
