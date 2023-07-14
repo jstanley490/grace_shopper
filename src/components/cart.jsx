@@ -6,6 +6,9 @@ export default function Cart() {
   const { user, setUser, cartItems, setCartItems, token, setToken } =
     useOutletContext();
   console.log(cartItems);
+  if (!token) {
+    return <div>No cart found</div>;
+  }
   if (cartItems.Empty) {
     return (
       <div>
