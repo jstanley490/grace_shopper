@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
-import { BASE_URL, checkout, fetchCart } from "../api/util";
+import { BASE_URL, checkout, fetchCart, removeFromCart } from "../api/util";
 
 export default function Cart() {
   const { user, setUser, cartItems, setCartItems, token, setToken } =
@@ -60,7 +60,7 @@ export default function Cart() {
                 <p>Quantity: {cartItem.quantity}</p>
                 <p className="treat-price">{cartItem.price}</p>
                 <button
-                  onClick={() => deleteCartItem(cartItem.id)}
+                  onClick={() => removeFromCart(cartItem.id)}
                   className="remove-item"
                 >
                   Remove Item
@@ -73,10 +73,13 @@ export default function Cart() {
           Total: $<span id="total-cost">{totalPrice}</span>
         </h3>
         <button
-          onClick={() => {
+          onClick={async () => {
             checkout();
-            fetchCart();
-            navigate("/");
+            const response = await fetchCart();
+            if (response) {
+              setCartItems(response);
+              navigate("/");
+            }
           }}
           id="checkout"
         >
