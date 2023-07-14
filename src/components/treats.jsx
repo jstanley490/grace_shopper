@@ -22,25 +22,24 @@ export default function Treats() {
               <div className="post" key={treat.id}>
                 <img src={treat.photo} className="post-img"></img>
                 <span className="purchase-details">
-                  <p>{treat.price}</p>
-                  <p>Inventory: {treat.stock}</p>
-                  <span
-                    onClick={async () => {
-                      const response = await addToCart(treat.id, "treat", 1);
-                      if (response) {
-                        const newCart = await fetchCart();
-                        if (newCart) {
-                          setCartItems(newCart);
-                          console.log(cartItems);
-                        }
-                      }
-                    }}
-                  >
+                  <h5>
+                    <p>{treat.price}</p>
+                  </h5>
+                  <h5>
+                    <p>Inventory: {treat.stock}</p>
+                  </h5>
+                  <span onClick={() => addToCart(treat.id, "treats", 1)}>
                     <i className="fa-solid fa-cart-plus add-cart"></i>
                   </span>
                 </span>
-                <h2>{treat.name}</h2>
-                <p>{treat.description}</p>
+                <u>
+                  <i>
+                    <h1>{treat.name}</h1>
+                  </i>
+                </u>
+                <h5>
+                  <p>{treat.description}</p>
+                </h5>
               </div>
             );
           })}

@@ -29,7 +29,7 @@ h1 {
       rgba(120, 96, 59, 0.768),
       rgba(97, 78, 49, 0.738)
     ),
-    url(../assets/merch.jpg);
+    url(/public/images/merch.jpg.jpg);
   height: 65vh;
   background-repeat: no-repeat;
   background-position: center;
