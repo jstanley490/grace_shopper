@@ -44,20 +44,24 @@ export default function Cart() {
     );
   }
   return (
-    <div id="page">
+    <div id="cart-page">
       <div id="products">
         <h2>Cart</h2>
         <div className="product-list">
           {cartItems.map((cartItem) => {
+            console.log(cartItems);
             return (
               <div className="activity-post" key={cartItem.id}>
-                <Link to={`/merch/${cartItem.id}`}>
+                <Link className="item-link" to={`/merch/${cartItem.id}`}>
                   <h1>{cartItem.name}</h1>
                 </Link>
+                <img className="cart-photo" src={cartItem.photo} alt="" />
                 <h2>{cartItem.type}</h2>
                 <p>Quantity: {cartItem.quantity}</p>
                 <p className="treat-price">{cartItem.price}</p>
-                <button onClick={() => deleteCartItem(cartItem.id)}>
+                <button
+                  onClick={() => deleteCartItem(cartItem.id)}
+                  className="remove-item">
                   Remove Item
                 </button>
               </div>

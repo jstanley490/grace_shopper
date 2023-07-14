@@ -6,8 +6,10 @@ export default function Merch() {
 
   return (
     <div id="page">
-      <div className="page-body">
+      <div id="merch-background">
         <h1>merch</h1>
+      </div>
+      <div className="page-body">
         <div className="listings">
           {merch.map((item) => {
             // console.log(item);
