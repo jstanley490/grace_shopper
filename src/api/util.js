@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-
 export const BASE_URL = "http://localhost:3000/api";
 
 export async function addToCart(productId, type, quant) {
