@@ -37,27 +37,10 @@ export default function IndividualMerch() {
   return (
     <div id="page">
       <h1>{product.type}</h1>
-
       {/* <p>{product.price}</p>
       <p>{product.color}</p>
-      <p>{product.size}</p>
-      <span onClick={handleClick}> */}
-      <h3>
-        <u>
-          <p>{product.price}</p>
-        </u>
-      </h3>
-      <h3>
-        <u>
-          <p>{product.color}</p>
-        </u>
-      </h3>
-      <h3>
-        <u>
-          <p>{product.size}</p>
-        </u>
-      </h3>
-      <span onClick={() => addToCart(product.id, "merch", 1)}>
+      <p>{product.size}</p> */}
+      <span onClick={handleClick}>
         <i className="fa-solid fa-cart-plus add-cart"></i>
       </span>
     </div>
