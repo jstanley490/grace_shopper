@@ -8,7 +8,7 @@ import {
   updateCart,
 } from "../api/util";
 import { useEffect, useState } from "react";
-import EditBox from "./editBox";
+// import EditBox from "./editBox";
 
 export default function AdminTreats() {
   const { treats, setCartItems, cartItems, fetchCart, setTreats } =
