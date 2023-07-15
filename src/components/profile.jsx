@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { handleRegister } from "../api/util";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import { BASE_URL } from "../api/util";
 import { useState } from "react";
 
 export default function Profile() {
@@ -11,6 +11,7 @@ export default function Profile() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [isAdmin, setIsAdmin] = useState(2);
+  const localToken = localStorage.getItem("token");
 
   function showPassword() {
     var p = document.getElementById("showInput");
@@ -20,6 +21,35 @@ export default function Profile() {
       p.type = "password";
     }
   }
+  const createAdmin = async (
+    username,
+    password,
+    firstName,
+    lastName,
+    email,
+    isAdmin
+  ) => {
+    console.log(username, password, firstName, lastName, email, isAdmin);
+    try {
+      const response = await fetch(`${BASE_URL}/users/createadmin`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localToken}`,
+        },
+        body: JSON.stringify({
+          username,
+          password,
+          firstName,
+          lastName,
+          email,
+          role_id: isAdmin,
+        }),
+      });
+      const result = response.json();
+      console.log(result);
+    } catch (error) {}
+  };
 
   const userRole = localStorage.getItem("user_role");
   console.log(typeof userRole);
@@ -28,12 +58,22 @@ export default function Profile() {
       <div id="login-page">
         <div className="auth">
           <aside>
-            <h1 to={"/register"} style={{ color: "black" }}>
-              Create User
-            </h1>
+            <h1 style={{ color: "black" }}>Create User</h1>
           </aside>
           <main id="main-register">
-            <form onSubmit={handleRegister}>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                createAdmin(
+                  username,
+                  password,
+                  firstName,
+                  lastName,
+                  email,
+                  isAdmin
+                );
+              }}
+            >
               <input
                 className="input"
                 onChange={(e) => setFirstName(e.target.value)}

@@ -99,42 +99,35 @@ export async function removeFromCart(cartId) {
   } catch (error) {}
 }
 
-export async function handleRegister(e) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmation, setConfirmation] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  e.preventDefault();
+// export async function handleRegister(e) {
+//   e.preventDefault();
 
-  if (password !== confirmation) {
-    setError("Password Incorrect");
-  }
+//   if (password !== confirmation) {
+//     setError("Password Incorrect");
+//   }
 
-  const response = await fetch(`${BASE_URL}/users/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username: username,
-      password: password,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-    }),
-  });
-  const result = await response.json();
-  console.log(result);
-  // console.log(result);
-  if (result.error) {
-    setError(result.message);
-    return;
-  }
+//   const response = await fetch(`${BASE_URL}/users/register`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       username: username,
+//       password: password,
+//       firstName: firstName,
+//       lastName: lastName,
+//       email: email,
+//     }),
+//   });
+//   const result = await response.json();
+//   console.log(result);
+//   // console.log(result);
+//   if (result.error) {
+//     setError(result.message);
+//     return;
+//   }
 
-  setToken(result.token);
-  localStorage.setItem("token", result.token);
-  navigate("/");
-}
+//   setToken(result.token);
+//   localStorage.setItem("token", result.token);
+//   navigate("/");
+// }
