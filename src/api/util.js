@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 export const BASE_URL = "http://localhost:3000/api";
 
-export const addToCart = async (productId, type, quant) => {
+export async function addToCart(productId, type, quant) {
   console.log(type);
   console.log(productId);
   console.log(quant);
@@ -31,7 +31,7 @@ export const addToCart = async (productId, type, quant) => {
     localStorage.setItem("cart", JSON.stringify(result));
     return result;
   }
-};
+}
 
 export async function fetchCart() {
   const localToken = localStorage.getItem("token");
@@ -147,6 +147,35 @@ export async function patchTreats(
 ) {
   const response = await fetch(`${BASE_URL}/treats/${treatId}`, {
     method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localToken}`,
+    },
+    body: JSON.stringify({
+      name: newNameText,
+      description: newDescriptionText,
+      category: newCategory,
+      stock: newStock,
+      price: newPrice,
+      photo: newPhoto,
+    }),
+  });
+  const treat = await response.json();
+  // console.log(treats);
+  return treat;
+}
+
+export async function createTreat(
+  localToken,
+  newNameText,
+  newDescriptionText,
+  newCategory,
+  newStock,
+  newPrice,
+  newPhoto
+) {
+  const response = await fetch(`${BASE_URL}/treats`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localToken}`,
