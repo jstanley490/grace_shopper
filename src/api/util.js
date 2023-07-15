@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 
-export const BASE_URL = "http://localhost:3000/api";
+export const BASE_URL = "https://graceshopperdatabase.onrender.com/api";
 
-export const addToCart = async (productId, type, quant) => {
-  console.log(type);
-  console.log(productId);
-  console.log(quant);
+export const addToCart = () => {
+  const navigate = useNavigate();
 
-  const localToken = localStorage.getItem("token");
-  console.log(localToken);
+  const postCart = async (productId, type, quant) => {
+    console.log(type);
+    console.log(productId);
+    console.log(quant);
 
   if (!localToken) {
     // push item to state
@@ -31,6 +31,7 @@ export const addToCart = async (productId, type, quant) => {
     localStorage.setItem("cart", JSON.stringify(result));
     return result;
   }
+
 };
 
 export async function fetchCart() {
