@@ -37,8 +37,9 @@ export default function Login() {
       console.error(result.message);
       return;
     }
-    // console.log(result);
+    console.log(result);
     localStorage.setItem("token", result.token);
+    localStorage.setItem("user_role", result.user.role_id);
     setToken(result.token);
     navigate("/");
   }
@@ -59,14 +60,16 @@ export default function Login() {
               onChange={(e) => setUsername(e.target.value)}
               value={username}
               placeholder="username"
-              className="input"></input>
+              className="input"
+            ></input>
             <input
               onChange={(e) => setPassword(e.target.value)}
               value={password}
               placeholder="password"
               type={"password"}
               id="showInput"
-              className="input"></input>
+              className="input"
+            ></input>
             <button type="submit" className="submit">
               Login
             </button>
