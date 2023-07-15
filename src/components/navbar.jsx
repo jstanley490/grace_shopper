@@ -5,6 +5,7 @@ export default function Navbar({ token }) {
   function handleLogout() {
     console.log("logging out");
     localStorage.removeItem("token");
+    localStorage.removeItem("user_role"), localStorage.removeItem("cart");
     setToken("");
     setUser({});
   }
@@ -21,15 +22,16 @@ export default function Navbar({ token }) {
         <img
           src={Logo}
           alt="chocolate chip cookie with bite taken out of it"
-          id="logo"></img>
+          id="logo"
+        ></img>
         <sub>Munchiez</sub>
       </Link>
       <Link to="/cart" className="nav-link">
         Cart
       </Link>
       {token ? (
-        <Link to="/profile" className="nav-link">
-          Account
+        <Link to="/accounts" className="nav-link">
+          Accounts
         </Link>
       ) : (
         <Link to="/login" className="nav-link">

@@ -1,18 +1,30 @@
 import { useEffect, useState } from "react";
-import { Link, useOutletContext } from "react-router-dom";
-import { BASE_URL } from "../api/util";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import { BASE_URL, checkout, fetchCart, removeFromCart } from "../api/util";
 
 export default function Cart() {
   const { user, setUser, cartItems, setCartItems, token, setToken } =
     useOutletContext();
-
+  console.log(cartItems);
+  if (!token) {
+    return <div>No cart found</div>;
+  }
+  if (cartItems.Empty) {
+    return (
+      <div>
+        <h2>{cartItems.Empty}</h2>
+      </div>
+    );
+  }
+  const navigate = useNavigate();
   const calculateTotalPrice = (cartItems) => {
     let totalPrice = 0;
 
     // Iterate over the cart items and sum up their prices
     cartItems.forEach((item) => {
       const price = parseFloat(item.price.replace("$", ""));
-      totalPrice += price;
+      const multi = price * item.quantity;
+      totalPrice += multi;
     });
 
     return totalPrice.toFixed(2); // Return the total price with two decimal places
@@ -32,24 +44,15 @@ export default function Cart() {
       }),
     });
     const result = await response.json();
-    console.log(result);
     location.reload();
   }
 
-  if (cartItems.length === 0) {
-    return (
-      <div>
-        <h2>loading</h2>
-      </div>
-    );
-  }
   return (
     <div id="cart-page">
       <div id="products">
         <h2>Cart</h2>
         <div className="product-list">
           {cartItems.map((cartItem) => {
-            console.log(cartItems);
             return (
               <div className="activity-post" key={cartItem.id}>
                 <Link className="item-link" to={`/merch/${cartItem.id}`}>
@@ -60,8 +63,17 @@ export default function Cart() {
                 <p>Quantity: {cartItem.quantity}</p>
                 <p className="treat-price">{cartItem.price}</p>
                 <button
-                  onClick={() => deleteCartItem(cartItem.id)}
-                  className="remove-item">
+                  onClick={async () => {
+                    const response = await removeFromCart(cartItem.id);
+                    if (response) {
+                      const newCart = await fetchCart();
+                      if (newCart) {
+                        setCartItems(newCart);
+                      }
+                    }
+                  }}
+                  className="remove-item"
+                >
                   Remove Item
                 </button>
               </div>
@@ -71,7 +83,19 @@ export default function Cart() {
         <h3>
           Total: $<span id="total-cost">{totalPrice}</span>
         </h3>
-        <button id="checkout">Checkout</button>
+        <button
+          onClick={async () => {
+            checkout();
+            const response = await fetchCart();
+            if (response) {
+              setCartItems(response);
+              navigate("/");
+            }
+          }}
+          id="checkout"
+        >
+          Checkout
+        </button>
       </div>
     </div>
   );
