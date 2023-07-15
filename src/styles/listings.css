@@ -77,6 +77,12 @@ h1 {
   margin: 0px;
   padding: 5px;
 }
+.fa-x.deleteTreat {
+  position: absolute;
+  font-size: 50px;
+  color: black;
+  font-weight: 700;
+}
 
 /* Media Queriies */
 

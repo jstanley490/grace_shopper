@@ -29,8 +29,8 @@ export default function Navbar({ token }) {
         Cart
       </Link>
       {token ? (
-        <Link to="/profile" className="nav-link">
-          Account
+        <Link to="/accounts" className="nav-link">
+          Accounts
         </Link>
       ) : (
         <Link to="/login" className="nav-link">

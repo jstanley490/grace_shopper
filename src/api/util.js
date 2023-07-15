@@ -99,35 +99,16 @@ export async function removeFromCart(cartId) {
   } catch (error) {}
 }
 
-// export async function handleRegister(e) {
-//   e.preventDefault();
-
-//   if (password !== confirmation) {
-//     setError("Password Incorrect");
-//   }
-
-//   const response = await fetch(`${BASE_URL}/users/register`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({
-//       username: username,
-//       password: password,
-//       firstName: firstName,
-//       lastName: lastName,
-//       email: email,
-//     }),
-//   });
-//   const result = await response.json();
-//   console.log(result);
-//   // console.log(result);
-//   if (result.error) {
-//     setError(result.message);
-//     return;
-//   }
-
-//   setToken(result.token);
-//   localStorage.setItem("token", result.token);
-//   navigate("/");
-// }
+export async function getUsers() {
+  const localToken = localStorage.getItem("token");
+  try {
+    const response = await fetch(`${BASE_URL}/users/accounts`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localToken}`,
+      },
+    });
+    const result = response.json();
+    return result;
+  } catch (error) {}
+}
