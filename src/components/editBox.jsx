@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { patchTreats } from "../api/util";
+import { fetchTreats, patchTreats } from "../api/util";
 
 export default function EditBox(props) {
-  const { editTreat } = props;
+  const { editTreat, setTreats } = props;
   const localToken = localStorage.getItem("token");
-  const [newNameText, setNewNameText] = useState("");
-  const [newDescriptionText, setNewDescriptionText] = useState("");
-  const [newPhoto, setNewPhoto] = useState("");
-  const [newPrice, setNewPrice] = useState(Number);
-  const [newCategory, setNewCategory] = useState("");
-  const [newStock, setNewStock] = useState(Number);
+
   if (editTreat) {
+    const [newNameText, setNewNameText] = useState(editTreat.name);
+    const [newDescriptionText, setNewDescriptionText] = useState(
+      editTreat.description
+    );
+    const [newCategory, setNewCategory] = useState(editTreat.category);
+    const [newStock, setNewStock] = useState(editTreat.stock);
+    const [newPrice, setNewPrice] = useState(editTreat.price);
+    const [newPhoto, setNewPhoto] = useState(editTreat.photo);
     return (
       <div className="editBox" id="editBox">
         <form
@@ -29,20 +32,29 @@ export default function EditBox(props) {
               newPrice,
               newPhoto
             );
+            document.getElementById("editBox").style.display = "none";
+            document.getElementById("editBox").style.display = "none";
+            setNewCategory(editTreat.category);
+            setNewStock(editTreat.stock);
+            setNewNameText(editTreat.name);
+            setNewDescriptionText(editTreat.description);
+            setNewPhoto(editTreat.photo);
+            setNewPrice(editTreat.price);
+            setNewStock(editTreat.stock);
+            console.log(
+              newNameText,
+              newDescriptionText,
+              newCategory,
+              newStock,
+              newPrice
+            );
             if (response1) {
-              document.getElementById("editBox").style.display = "none";
-              document.getElementById("editBox").style.display = "none";
-              setNewCategory(0);
-              setNewStock(0);
-              setNewNameText("");
-              setNewDescriptionText("");
-              setNewPhoto("");
-              setNewPrice(Number);
-              setNewStock(Number);
-              setNewCategory("");
+              const pull = await fetchTreats();
+              if (pull) {
+                setTreats(pull);
+              }
             }
           }}
-          className="newRoutineForm"
         >
           <h1>Edit Treat</h1>
           <label htmlFor="newName">Name: </label>

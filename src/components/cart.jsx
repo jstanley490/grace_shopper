@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { BASE_URL, checkout, fetchCart, removeFromCart } from "../api/util";
+import { toast } from "react-hot-toast";
 
 export default function Cart() {
   const { user, setUser, cartItems, setCartItems, token, setToken } =
@@ -89,7 +90,10 @@ export default function Cart() {
             const response = await fetchCart();
             if (response) {
               setCartItems(response);
-              navigate("/");
+              toast.success("You have checkout! Enjoy! Thanks!");
+              setTimeout(() => {
+                navigate("/");
+              }, 3000);
             }
           }}
           id="checkout"

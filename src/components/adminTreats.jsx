@@ -26,7 +26,7 @@ export default function AdminTreats() {
       </div>
       <div className="page-body">
         <div className="listings">
-          <EditBox editTreat={editTreat} context={editTreat} />
+          <EditBox editTreat={editTreat} setTreats={setTreats} />
           {treats.map((treat) => {
             for (let key in cartItems) {
               if (cartItems[key].product_id === treat.id) {
