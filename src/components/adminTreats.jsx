@@ -163,12 +163,7 @@ export default function AdminTreats() {
                     console.log("tom cruise");
                     e.preventDefault();
                     setEditTreat(treat);
-                    if (editTreat !== {}) {
-                      console.log(
-                        editTreat,
-                        treat,
-                        "llllllllllllllllllllllllll"
-                      );
+                    if (editTreat) {
                       document.getElementById("editBox").style.display = "flex";
                     }
                   }}
@@ -203,6 +198,12 @@ export default function AdminTreats() {
               </div>
             );
           })}
+          <div className="addTreat post">
+            <i onClick={(e) => {
+              e.preventDefault();
+              
+            }} className="fa-solid fa-plus"></i>
+          </div>
         </div>
       </div>
     </div>
