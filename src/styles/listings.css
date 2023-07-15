@@ -29,7 +29,7 @@ h1 {
       rgba(120, 96, 59, 0.768),
       rgba(97, 78, 49, 0.738)
     ),
-    url(../assets/merch.jpg);
+    url(/public/images/merch.jpg.jpg);
   height: 65vh;
   background-repeat: no-repeat;
   background-position: center;
@@ -71,6 +71,32 @@ h1 {
 }
 .add-cart {
   margin: 18px;
+}
+.fa-plus,
+.fa-minus {
+  margin: 0px;
+  padding: 5px;
+}
+.fa-x.deleteTreat {
+  position: absolute;
+  font-size: 50px;
+  color: black;
+  font-weight: 700;
+  z-index: 3;
+}
+.fa-x.deleteTreat:hover {
+  cursor: pointer;
+}
+.fa-pencil.editTreat {
+  position: absolute;
+  font-size: 50px;
+  color: black;
+  font-weight: 700;
+  z-index: 3;
+  transform: translateX(90%);
+}
+.fa-pencil.editTreat:hover {
+  cursor: pointer;
 }
 
 /* Media Queriies */

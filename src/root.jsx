@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/navbar";
 import { useEffect, useState } from "react";
-import { BASE_URL } from "./api/util";
+import { BASE_URL, fetchCart } from "./api/util";
 
 import { Toaster } from "react-hot-toast";
 
@@ -54,22 +54,10 @@ export default function Root() {
   }, []);
 
   useEffect(() => {
-    async function fetchCart() {
-      const localToken = localStorage.getItem("token");
-      if (localToken) {
-        setToken(localToken);
-        const response = await fetch(`${BASE_URL}/cart`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localToken}`,
-          },
-        });
-        const cartItems = await response.json();
-        // console.log(cartItems);
-        setCartItems(cartItems);
-      }
-    }
-    fetchCart();
+    Promise.all([fetchCart()]).then((values) => {
+      setCartItems(values[0]);
+      localStorage.setItem("cart", JSON.stringify(values[0]));
+    });
   }, [token]);
 
   useEffect(() => {
@@ -84,7 +72,7 @@ export default function Root() {
           },
         });
         const cartItems = await response.json();
-        // console.log(cartItems);
+        //console.log(cartItems);
         setCartItems(cartItems);
       }
     }
@@ -105,6 +93,7 @@ export default function Root() {
           setMerch,
           cartItems,
           setCartItems,
+          fetchCart,
         }}
       />
     </div>
