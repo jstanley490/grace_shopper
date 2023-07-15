@@ -1,14 +1,16 @@
 import { useNavigate } from "react-router-dom";
 
-export const BASE_URL = "http://localhost:3000/api";
+export const BASE_URL = "https://graceshopperdatabase.onrender.com/api";
 
 export async function addToCart(productId, type, quant) {
   console.log(type);
   console.log(productId);
   console.log(quant);
 
-  const localToken = localStorage.getItem("token");
-  console.log(localToken);
+  const postCart = async (productId, type, quant) => {
+    console.log(type);
+    console.log(productId);
+    console.log(quant);
 
   if (!localToken) {
     // push item to state
