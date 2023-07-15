@@ -1,34 +1,39 @@
-export const BASE_URL = "http://localhost:3000/api";
+import { useNavigate } from "react-router-dom";
+
+export const BASE_URL = "https://graceshopperdatabase.onrender.com/api";
 
 export async function addToCart(productId, type, quant) {
   console.log(type);
   console.log(productId);
   console.log(quant);
 
-  const localToken = localStorage.getItem("token");
-  console.log(localToken);
+  const postCart = async (productId, type, quant) => {
+    console.log(type);
+    console.log(productId);
+    console.log(quant);
 
-  if (!localToken) {
-    // push item to state
-  } else {
-    console.log("sending request");
-    const response = await fetch(`${BASE_URL}/cart`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localToken}`,
-      },
-      body: JSON.stringify({
-        productType: type,
-        productId: productId,
-        quantity: quant,
-      }),
-    });
-    console.log("awaiting response");
-    const result = await response.json();
-    localStorage.setItem("cart", JSON.stringify(result));
-    return result;
-  }
+    if (!localToken) {
+      // push item to state
+    } else {
+      console.log("sending request");
+      const response = await fetch(`${BASE_URL}/cart`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localToken}`,
+        },
+        body: JSON.stringify({
+          productType: type,
+          productId: productId,
+          quantity: quant,
+        }),
+      });
+      console.log("awaiting response");
+      const result = await response.json();
+      localStorage.setItem("cart", JSON.stringify(result));
+      return result;
+    }
+  };
 }
 
 export async function fetchCart() {

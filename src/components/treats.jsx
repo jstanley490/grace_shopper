@@ -1,7 +1,9 @@
+
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { addToCart, fetchCart, removeFromCart, updateCart } from "../api/util";
 import { useEffect } from "react";
 import AdminTreats from "./adminTreats";
+
 
 export default function Treats() {
   const { treats, setCartItems, cartItems, fetchCart } = useOutletContext();
