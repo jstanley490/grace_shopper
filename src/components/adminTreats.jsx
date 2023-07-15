@@ -8,7 +8,8 @@ import {
   updateCart,
 } from "../api/util";
 import { useEffect, useState } from "react";
-// import EditBox from "./editBox";
+import EditBox from "./editBox";
+import AddTreat from "./addTreat";
 
 export default function AdminTreats() {
   const { treats, setCartItems, cartItems, fetchCart, setTreats } =
@@ -26,6 +27,7 @@ export default function AdminTreats() {
       </div>
       <div className="page-body">
         <div className="listings">
+          <AddTreat setTreats={setTreats} />
           <EditBox editTreat={editTreat} setTreats={setTreats} />
           {treats.map((treat) => {
             for (let key in cartItems) {
@@ -199,10 +201,13 @@ export default function AdminTreats() {
             );
           })}
           <div className="addTreat post">
-            <i onClick={(e) => {
-              e.preventDefault();
-              
-            }} className="fa-solid fa-plus"></i>
+            <i
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("addTreatBox").style.display = "flex";
+              }}
+              className="fa-solid fa-plus"
+            ></i>
           </div>
         </div>
       </div>

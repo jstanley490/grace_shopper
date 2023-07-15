@@ -2,37 +2,38 @@ import { useNavigate } from "react-router-dom";
 
 export const BASE_URL = "https://graceshopperdatabase.onrender.com/api";
 
-export const addToCart = () => {
-  const navigate = useNavigate();
+export async function addToCart(productId, type, quant) {
+  console.log(type);
+  console.log(productId);
+  console.log(quant);
 
   const postCart = async (productId, type, quant) => {
     console.log(type);
     console.log(productId);
     console.log(quant);
 
-    if (!localToken) {
-      // push item to state
-    } else {
-      console.log("sending request");
-      const response = await fetch(`${BASE_URL}/cart`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localToken}`,
-        },
-        body: JSON.stringify({
-          productType: type,
-          productId: productId,
-          quantity: quant,
-        }),
-      });
-      console.log("awaiting response");
-      const result = await response.json();
-      localStorage.setItem("cart", JSON.stringify(result));
-      return result;
-    }
-  };
-};
+  if (!localToken) {
+    // push item to state
+  } else {
+    console.log("sending request");
+    const response = await fetch(`${BASE_URL}/cart`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localToken}`,
+      },
+      body: JSON.stringify({
+        productType: type,
+        productId: productId,
+        quantity: quant,
+      }),
+    });
+    console.log("awaiting response");
+    const result = await response.json();
+    localStorage.setItem("cart", JSON.stringify(result));
+    return result;
+  }
+}
 
 export async function fetchCart() {
   const localToken = localStorage.getItem("token");
@@ -148,6 +149,35 @@ export async function patchTreats(
 ) {
   const response = await fetch(`${BASE_URL}/treats/${treatId}`, {
     method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localToken}`,
+    },
+    body: JSON.stringify({
+      name: newNameText,
+      description: newDescriptionText,
+      category: newCategory,
+      stock: newStock,
+      price: newPrice,
+      photo: newPhoto,
+    }),
+  });
+  const treat = await response.json();
+  // console.log(treats);
+  return treat;
+}
+
+export async function createTreat(
+  localToken,
+  newNameText,
+  newDescriptionText,
+  newCategory,
+  newStock,
+  newPrice,
+  newPhoto
+) {
+  const response = await fetch(`${BASE_URL}/treats`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localToken}`,
