@@ -112,3 +112,25 @@ export async function getUsers() {
     return result;
   } catch (error) {}
 }
+
+export async function deleteTreat(treatId) {
+  const localToken = localStorage.getItem("token");
+  try {
+    const response = await fetch(`${BASE_URL}/treats/${treatId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localToken}`,
+      },
+    });
+    console.log(response);
+    return response;
+  } catch (error) {}
+}
+
+export async function fetchTreats() {
+  const response = await fetch(`${BASE_URL}/treats`);
+  const treats = await response.json();
+  // console.log(treats);
+  return treats;
+}

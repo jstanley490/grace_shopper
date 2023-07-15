@@ -82,6 +82,10 @@ h1 {
   font-size: 50px;
   color: black;
   font-weight: 700;
+  z-index: 3;
+}
+.fa-x.deleteTreat:hover {
+  cursor: pointer;
 }
 
 /* Media Queriies */

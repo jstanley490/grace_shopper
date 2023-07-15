@@ -5,6 +5,7 @@ export default function Navbar({ token }) {
   function handleLogout() {
     console.log("logging out");
     localStorage.removeItem("token");
+    localStorage.removeItem("user_role"), localStorage.removeItem("cart");
     setToken("");
     setUser({});
   }
