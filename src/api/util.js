@@ -135,3 +135,33 @@ export async function fetchTreats() {
   // console.log(treats);
   return treats;
 }
+
+export async function patchTreats(
+  treatId,
+  localToken,
+  newNameText,
+  newDescriptionText,
+  newCategory,
+  newStock,
+  newPrice,
+  newPhoto
+) {
+  const response = await fetch(`${BASE_URL}/treats/${treatId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localToken}`,
+    },
+    body: JSON.stringify({
+      name: newNameText,
+      description: newDescriptionText,
+      category: newCategory,
+      stock: newStock,
+      price: newPrice,
+      photo: newPhoto,
+    }),
+  });
+  const treat = await response.json();
+  // console.log(treats);
+  return treat;
+}
