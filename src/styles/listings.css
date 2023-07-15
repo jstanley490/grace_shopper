@@ -87,6 +87,17 @@ h1 {
 .fa-x.deleteTreat:hover {
   cursor: pointer;
 }
+.fa-pencil.editTreat {
+  position: absolute;
+  font-size: 50px;
+  color: black;
+  font-weight: 700;
+  z-index: 3;
+  transform: translateX(90%);
+}
+.fa-pencil.editTreat:hover {
+  cursor: pointer;
+}
 
 /* Media Queriies */
 

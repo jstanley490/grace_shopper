@@ -7,17 +7,14 @@ import {
   removeFromCart,
   updateCart,
 } from "../api/util";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import EditBox from "./editBox";
 
 export default function AdminTreats() {
   const { treats, setCartItems, cartItems, fetchCart, setTreats } =
     useOutletContext();
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   Promise.all([fetchCart()]).then((values) => {
-  //     setCartItems(values[0]);
-  //   });
-  // }, []);
+  const [editTreat, setEditTreat] = useState({});
   console.log(cartItems);
   if (!cartItems || cartItems === undefined) {
     setCartItems({ true: "ay" });
@@ -29,6 +26,7 @@ export default function AdminTreats() {
       </div>
       <div className="page-body">
         <div className="listings">
+          <EditBox editTreat={editTreat} context={editTreat} />
           {treats.map((treat) => {
             for (let key in cartItems) {
               if (cartItems[key].product_id === treat.id) {
@@ -54,6 +52,17 @@ export default function AdminTreats() {
                         }}
                         className="fa-solid fa-x deleteTreat"
                       ></i>
+                      <i
+                        onClick={async (e) => {
+                          console.log("tom cruise");
+                          e.preventDefault();
+                          setEditTreat(treat);
+                          document.getElementById("editBox").style.display =
+                            "flex";
+                        }}
+                        className="fa-solid fa-pencil editTreat"
+                      ></i>
+
                       <img src={treat.photo} className="post-img"></img>
                       <span className="purchase-details">
                         <p>{treat.price}</p>
@@ -120,7 +129,6 @@ export default function AdminTreats() {
                             }}
                             className="fa-solid fa-minus"
                           ></i>
-
                           <p id={`cartItem${cartItems[key].id}`}>
                             {cartItems[key].quantity}
                           </p>
@@ -150,6 +158,23 @@ export default function AdminTreats() {
                   }}
                   className="fa-solid fa-x deleteTreat"
                 ></i>
+                <i
+                  onClick={async (e) => {
+                    console.log("tom cruise");
+                    e.preventDefault();
+                    setEditTreat(treat);
+                    if (editTreat !== {}) {
+                      console.log(
+                        editTreat,
+                        treat,
+                        "llllllllllllllllllllllllll"
+                      );
+                      document.getElementById("editBox").style.display = "flex";
+                    }
+                  }}
+                  className="fa-solid fa-pencil editTreat"
+                ></i>
+
                 <img src={treat.photo} className="post-img"></img>
                 <span className="purchase-details">
                   <p>{treat.price}</p>
