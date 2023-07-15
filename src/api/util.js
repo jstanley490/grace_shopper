@@ -7,33 +7,28 @@ export async function addToCart(productId, type, quant) {
   console.log(productId);
   console.log(quant);
 
-  const postCart = async (productId, type, quant) => {
-    console.log(type);
-    console.log(productId);
-    console.log(quant);
-
-    if (!localToken) {
-      // push item to state
-    } else {
-      console.log("sending request");
-      const response = await fetch(`${BASE_URL}/cart`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localToken}`,
-        },
-        body: JSON.stringify({
-          productType: type,
-          productId: productId,
-          quantity: quant,
-        }),
-      });
-      console.log("awaiting response");
-      const result = await response.json();
-      localStorage.setItem("cart", JSON.stringify(result));
-      return result;
-    }
-  };
+  const localToken = localStorage.getItem("token");
+  if (!localToken) {
+    // push item to state
+  } else {
+    console.log("sending request");
+    const response = await fetch(`${BASE_URL}/cart`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localToken}`,
+      },
+      body: JSON.stringify({
+        productType: type,
+        productId: productId,
+        quantity: quant,
+      }),
+    });
+    console.log("awaiting response");
+    const result = await response.json();
+    localStorage.setItem("cart", JSON.stringify(result));
+    return result;
+  }
 }
 
 export async function fetchCart() {
