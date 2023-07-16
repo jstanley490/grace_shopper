@@ -5,13 +5,14 @@ import {
   useParams,
   Link,
 } from "react-router-dom";
-import { addToCart } from "../api/util";
+import { addToCart, fetchCart } from "../api/util";
 
 export default function IndividualMerch() {
   const { merchId } = useParams();
-  const { merch, setCartItems } = useOutletContext();
+  const { merch, setCartItems, cartItems } = useOutletContext();
   const product = merch.find((item) => item.id == merchId);
   // console.log(product);
+  console.log(cartItems);
 
   const navigate = useNavigate();
 
@@ -25,21 +26,37 @@ export default function IndividualMerch() {
     return <div id="page">Loading...</div>;
   }
 
-  function handleClick() {
+  async function handleClick() {
     const localToken = localStorage.getItem("token");
     if (!localToken) {
       navigate("/login");
     } else {
-      addToCart(product.id, "merch", 1);
+      const response = await addToCart(product.id, "merch", 1);
+      console.log(cartItems);
+      // setCartItems(product);
+      for (let key in cartItems) {
+        if (cartItems[key].product_id === product.id) {
+          if (response) {
+            const newCart = await fetchCart();
+            if (newCart) {
+              //setCartItems(newCart);
+              document.getElementById(
+                `cartItem${cartItems[key].id}`
+              ).innerText = cartItems[key].quantity;
+              localStorage.setItem("cart", JSON.stringify(newCart));
+            }
+          }
+        }
+      }
     }
   }
 
   return (
     <div id="page">
       <h1>{product.type}</h1>
-      {/* <p>{product.price}</p>
+      <p>{product.price}</p>
       <p>{product.color}</p>
-      <p>{product.size}</p> */}
+      <p>{product.size}</p>
       <span onClick={handleClick}>
         <i className="fa-solid fa-cart-plus add-cart"></i>
       </span>

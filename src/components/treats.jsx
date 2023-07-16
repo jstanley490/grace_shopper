@@ -1,9 +1,7 @@
-
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { addToCart, fetchCart, removeFromCart, updateCart } from "../api/util";
 import { useEffect } from "react";
 import AdminTreats from "./adminTreats";
-
 
 export default function Treats() {
   const { treats, setCartItems, cartItems, fetchCart } = useOutletContext();
@@ -13,7 +11,7 @@ export default function Treats() {
   //     setCartItems(values[0]);
   //   });
   // }, []);
-  console.log(cartItems);
+  // console.log(cartItems);
   if (!cartItems || cartItems === undefined) {
     setCartItems({ true: "ay" });
   }
@@ -36,7 +34,6 @@ export default function Treats() {
                     cartItems[key].category === "brownie"
                   ) {
                     console.log(cartItems, "help");
-                    console.log("tom cruise");
                     return (
                       <div className="post" key={treat.id}>
                         <img src={treat.photo} className="post-img"></img>
@@ -66,8 +63,7 @@ export default function Treats() {
                                   }
                                 }
                               }}
-                              className="fa-solid fa-plus"
-                            ></i>
+                              className="fa-solid fa-plus"></i>
                             <i
                               onClick={async () => {
                                 cartItems[key].quantity--;
@@ -103,8 +99,7 @@ export default function Treats() {
                                   }
                                 }
                               }}
-                              className="fa-solid fa-minus"
-                            ></i>
+                              className="fa-solid fa-minus"></i>
 
                             <p id={`cartItem${cartItems[key].id}`}>
                               {cartItems[key].quantity}
@@ -142,8 +137,7 @@ export default function Treats() {
                             );
                           }
                         }
-                      }}
-                    >
+                      }}>
                       <i className="fa-solid fa-cart-plus add-cart"></i>
                     </span>
                   </span>
