@@ -8,6 +8,8 @@ export async function addToCart(productId, type, quant) {
   console.log(productId);
   console.log(quant);
 
+  const localToken = localStorage.getItem("token");
+
   if (!localToken) {
     // push item to state
   } else {
@@ -26,7 +28,7 @@ export async function addToCart(productId, type, quant) {
     });
     console.log("awaiting response");
     const result = await response.json();
-    console.log(result);
+
     localStorage.setItem("cart", JSON.stringify(result));
     return result;
   }
