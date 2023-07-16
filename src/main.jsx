@@ -12,7 +12,6 @@ import Homepage from "./components/homepage";
 import Login from "./components/login";
 import Register from "./components/register";
 import Cart from "./components/cart";
-import Profile from "./components/accounts";
 import Merch from "./components/merch";
 import Treats from "./components/treats";
 import IndividualTreat from "./components/individualTreat";

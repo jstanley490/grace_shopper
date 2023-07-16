@@ -10,8 +10,10 @@ import { addToCart, removeFromCart, updateCart } from "../api/util";
 export default function IndividualMerch() {
   const { merchId } = useParams();
   const { merch, setCartItems, fetchCart, cartItems } = useOutletContext();
+
   const product = merch.find((item) => item.id == merchId);
   // console.log(product);
+  console.log(cartItems);
 
   const navigate = useNavigate();
 
@@ -118,6 +120,7 @@ export default function IndividualMerch() {
           </span>
         </div>
       );
+
     }
   }
 
