@@ -16,7 +16,7 @@ export default function AdminTreats() {
     useOutletContext();
   const navigate = useNavigate();
   const [editTreat, setEditTreat] = useState({});
-  console.log(cartItems);
+  // console.log(cartItems);
   if (!cartItems || cartItems === undefined) {
     setCartItems({ true: "ay" });
   }
@@ -36,34 +36,30 @@ export default function AdminTreats() {
                   cartItems[key].category === "cookie" ||
                   cartItems[key].category === "brownie"
                 ) {
-                  console.log(cartItems, "help");
-
                   return (
                     <div className="post" key={treat.id}>
-                      <i
-                        onClick={async (e) => {
-                          console.log("tom cruise");
-                          e.preventDefault();
-                          const response = await deleteTreat(treat.id);
-                          if (response) {
-                            const newTreats = await fetchTreats();
-                            if (newTreats) {
-                              setTreats(newTreats);
+                      <span>
+                        <i
+                          onClick={async (e) => {
+                            e.preventDefault();
+                            const response = await deleteTreat(treat.id);
+                            if (response) {
+                              const newTreats = await fetchTreats();
+                              if (newTreats) {
+                                setTreats(newTreats);
+                              }
                             }
-                          }
-                        }}
-                        className="fa-solid fa-x deleteTreat"
-                      ></i>
+                          }}
+                          className="fa-solid fa-trash deleteTreat"></i>
+                      </span>
                       <i
                         onClick={async (e) => {
-                          console.log("tom cruise");
                           e.preventDefault();
                           setEditTreat(treat);
                           document.getElementById("editBox").style.display =
                             "flex";
                         }}
-                        className="fa-solid fa-pencil editTreat"
-                      ></i>
+                        className="fa-solid fa-pencil editTreat add-cart"></i>
 
                       <img src={treat.photo} className="post-img"></img>
                       <span className="purchase-details">
@@ -92,12 +88,10 @@ export default function AdminTreats() {
                                 }
                               }
                             }}
-                            className="fa-solid fa-plus"
-                          ></i>
+                            className="fa-solid fa-plus"></i>
                           <i
                             onClick={async () => {
                               cartItems[key].quantity--;
-                              console.log(cartItems[key].quantity);
                               if (cartItems[key].quantity === 0) {
                                 const response = await removeFromCart(
                                   cartItems[key].id
@@ -129,8 +123,7 @@ export default function AdminTreats() {
                                 }
                               }
                             }}
-                            className="fa-solid fa-minus"
-                          ></i>
+                            className="fa-solid fa-minus"></i>
                           <p id={`cartItem${cartItems[key].id}`}>
                             {cartItems[key].quantity}
                           </p>
@@ -148,7 +141,6 @@ export default function AdminTreats() {
               <div className="post" key={treat.id}>
                 <i
                   onClick={async (e) => {
-                    console.log("tom cruise");
                     e.preventDefault();
                     const response = await deleteTreat(treat.id);
                     if (response) {
@@ -158,19 +150,16 @@ export default function AdminTreats() {
                       }
                     }
                   }}
-                  className="fa-solid fa-x deleteTreat"
-                ></i>
+                  className="fa-solid fa-x deleteTreat"></i>
                 <i
                   onClick={async (e) => {
-                    console.log("tom cruise");
                     e.preventDefault();
                     setEditTreat(treat);
                     if (editTreat) {
                       document.getElementById("editBox").style.display = "flex";
                     }
                   }}
-                  className="fa-solid fa-pencil editTreat"
-                ></i>
+                  className="fa-solid fa-pencil editTreat"></i>
 
                 <img src={treat.photo} className="post-img"></img>
                 <span className="purchase-details">
@@ -179,7 +168,6 @@ export default function AdminTreats() {
                   <span
                     onClick={async () => {
                       const response = await addToCart(treat.id, "treat", 1);
-                      console.log(response);
                       if (!response) {
                         navigate("../login");
                       }
@@ -190,8 +178,7 @@ export default function AdminTreats() {
                           localStorage.setItem("cart", JSON.stringify(newCart));
                         }
                       }
-                    }}
-                  >
+                    }}>
                     <i className="fa-solid fa-cart-plus add-cart"></i>
                   </span>
                 </span>
@@ -206,8 +193,7 @@ export default function AdminTreats() {
                 e.preventDefault();
                 document.getElementById("addTreatBox").style.display = "flex";
               }}
-              className="fa-solid fa-plus"
-            ></i>
+              className="fa-solid fa-plus"></i>
           </div>
         </div>
       </div>

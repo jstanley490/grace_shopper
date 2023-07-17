@@ -15,24 +15,16 @@ export default function Merch() {
             return (
               <Link to={`/merch/${item.id}`} className="post" key={item.id}>
                 <img className="post-img" src="images/merch-logo.jpg" />
-                <i>
-                  <h2>{item.type}</h2>
-                </i>
-                <h5>
-                  <p>
-                    Color: <u>{item.color}</u>
-                  </p>
-                </h5>
-                <h5>
-                  <p>
-                    Size: <u>{item.size}</u>
-                  </p>
-                </h5>
-                <h5>
-                  <p>
-                    Price: <u>{item.price}</u>
-                  </p>
-                </h5>
+                <h2>{item.type}</h2>
+                <p>
+                  Color: <u>{item.color}</u>
+                </p>
+                <p>
+                  Size: <u>{item.size}</u>
+                </p>
+                <p>
+                  Price: <u>{item.price}</u>
+                </p>
               </Link>
             );
           })}
