@@ -38,6 +38,12 @@ body {
   position: relative;
   z-index: -1;
 }
+.body-content {
+  padding: 3rem;
+  font-size: large;
+  /* font-weight: 700; */
+}
+
 #accountBox {
   display: flex;
   justify-content: flex-start;
@@ -78,4 +84,12 @@ body {
   z-index: 5;
   justify-content: space-around;
   background-color: burlywood;
+}
+
+/* Media Queriies */
+
+@media screen and (max-width: 720px) {
+  .background-img {
+    margin-top: -300px;
+  }
 }

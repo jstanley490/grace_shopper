@@ -80,8 +80,7 @@ export default function IndividualMerch() {
                   }
                 }
               }}
-              className="fa-solid fa-plus"
-            ></i>
+              className="fa-solid fa-plus"></i>
             <span id={`merchItem${product.id}`}>
               Quantity: {cartItems[key].quantity}
             </span>
@@ -115,24 +114,28 @@ export default function IndividualMerch() {
                   }
                 }
               }}
-              className="fa-solid fa-minus"
-            ></i>
+              className="fa-solid fa-minus"></i>
           </span>
         </div>
       );
-
     }
   }
 
   return (
     <div id="page">
       <h1>{product.type}</h1>
-      <p>{product.price}</p>
-      <p>{product.color}</p>
-      <p>{product.size}</p>
-      <span onClick={handleClick}>
-        <i className="fa-solid fa-cart-plus add-cart"></i>
-      </span>
+      <div className="details">
+        <div className="merch">
+          <p>{product.color}</p>
+          <p>{product.size}</p>
+          <span className="purchase-details">
+            <p>{product.price}</p>
+            <span onClick={handleClick}>
+              <i className="fa-solid fa-cart-plus add-cart"></i>
+            </span>
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
