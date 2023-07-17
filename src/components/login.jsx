@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
-import { BASE_URL } from "../api/util";
+import { BASE_URL, fetchCart } from "../api/util";
 
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { setToken } = useOutletContext();
+  const { setToken, setCartItems } = useOutletContext();
   const navigate = useNavigate();
 
   function showPassword() {
@@ -32,16 +32,26 @@ export default function Login() {
       }),
     });
     const result = await response.json();
+
     if (result.error) {
       setError(result.message);
       console.error(result.message);
       return;
     }
-    console.log(result);
-    localStorage.setItem("token", result.token);
-    localStorage.setItem("user_role", result.user.role_id);
-    setToken(result.token);
-    navigate("/");
+
+    if (result) {
+      localStorage.setItem("token", result.token);
+      localStorage.setItem("user_role", result.user.role_id);
+      const cart = await fetchCart();
+      console.log(cart);
+      if (cart) {
+        console.log(result);
+        setCartItems(cart);
+        console.log(result);
+        setToken(result.token);
+        navigate("/");
+      }
+    }
   }
   return (
     <div id="login-page">

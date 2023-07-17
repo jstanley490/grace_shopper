@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 export default function Cart() {
   const { user, setUser, cartItems, setCartItems, token, setToken } =
     useOutletContext();
-  console.log(cartItems);
+  console.log(cartItems, "ugh");
   if (!token) {
     return <div>No cart found</div>;
   }
