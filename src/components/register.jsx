@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 
 import { BASE_URL } from "../api/util";
+import { toast } from "react-hot-toast";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -44,9 +45,10 @@ export default function Register() {
       }),
     });
     const result = await response.json();
+    console.log(result);
     // console.log(result);
     if (result.error) {
-      setError(result.message);
+      toast.error(result.error);
       return;
     }
 

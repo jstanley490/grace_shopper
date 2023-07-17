@@ -59,6 +59,7 @@ h1 {
 }
 .post-img {
   max-width: 100%;
+  box-shadow: 0.1rem 0.1rem 0.75rem gray;
 }
 .purchase-details {
   display: flex;
@@ -72,12 +73,63 @@ h1 {
 .add-cart {
   margin: 18px;
 }
+.fa-plus,
+.fa-minus {
+  margin: 0px;
+  padding: 5px;
+}
+.fa-x.deleteTreat {
+  background-color: black;
+  border-radius: 4px;
+  position: absolute;
+  color: rgb(255, 247, 197);
+  filter: drop-shadow(0.25rem 0.25rem 0.4rem rgb(172, 167, 135));
+  font-size: 40px;
+  font-weight: 400;
+  padding: 6px;
+}
+.fa-x.deleteTreat:hover {
+  cursor: pointer;
+}
+.fa-pencil.editTreat {
+  background-color: black;
+  border-radius: 4px;
+  position: absolute;
+  color: rgb(255, 247, 197);
+  filter: drop-shadow(0.25rem 0.25rem 0.4rem rgb(172, 167, 135));
+  font-size: 40px;
+  padding: 6px;
+  transform: translateX(90%);
+}
+.fa-pencil.editTreat:hover {
+  cursor: pointer;
+}
+.addTreat {
+  border: 3px solid black;
+  height: 98%;
+  width: 98%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addTreat > .fa-plus {
+  font-size: 50px;
+}
 
 /* Media Queriies */
 
 @media screen and (max-width: 974px) {
   .listings {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 720px) {
+  #treats-background {
+    margin-top: -160px;
+    margin-bottom: -100px;
+  }
+  #merch-background {
+    margin-bottom: -100px;
   }
 }
 @media screen and (max-width: 524px) {

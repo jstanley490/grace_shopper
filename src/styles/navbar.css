@@ -11,6 +11,12 @@
   font-size: x-large;
   font-weight: 700;
 }
+#mobile-nav {
+  display: none;
+}
+#myLinks {
+  display: none;
+}
 .nav-link {
   text-decoration: none;
   color: black;
@@ -54,4 +60,45 @@
 }
 #profile {
   margin-left: 5rem;
+}
+
+/* Media Queriies */
+
+@media screen and (max-width: 720px) {
+  #navbar {
+    display: none;
+  }
+  #mobile-nav {
+    background-color: rgba(0, 0, 0, 0.613);
+    padding: 1rem;
+    margin-top: -10px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #mobile-logo {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: medium;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    max-width: 51px;
+  }
+  .fa-bars {
+    color: white;
+    font-size: x-large;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+  #myLinks {
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.851);
+  }
+  .nav-link {
+    padding: 12px;
+  }
 }

@@ -6,17 +6,17 @@ import "./styles/navbar.css";
 import "./styles/account-form.css";
 import "./styles/cart.css";
 import "./styles/listings.css";
+import "./styles/merch-details.css";
 import Root from "./root";
 import ErrorPage from "./error-page";
 import Homepage from "./components/homepage";
 import Login from "./components/login";
 import Register from "./components/register";
 import Cart from "./components/cart";
-import Profile from "./components/profile";
 import Merch from "./components/merch";
 import Treats from "./components/treats";
-import IndividualTreat from "./components/individualTreat";
 import IndividualMerch from "./components/individualMerch";
+import Accounts from "./components/accounts";
 
 const router = createBrowserRouter([
   {
@@ -37,10 +37,6 @@ const router = createBrowserRouter([
         element: <IndividualMerch />,
       },
       {
-        path: "/:treatId",
-        element: <IndividualTreat />,
-      },
-      {
         path: "/login",
         element: <Login />,
       },
@@ -49,8 +45,8 @@ const router = createBrowserRouter([
         element: <Merch />,
       },
       {
-        path: "/profile",
-        element: <Profile />,
+        path: "/accounts",
+        element: <Accounts />,
       },
       {
         path: "/register",
