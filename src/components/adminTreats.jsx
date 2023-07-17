@@ -50,7 +50,7 @@ export default function AdminTreats() {
                               }
                             }
                           }}
-                          className="fa-solid fa-trash deleteTreat"></i>
+                          className="fa-solid fa-x deleteTreat"></i>
                       </span>
                       <i
                         onClick={async (e) => {
