@@ -6,6 +6,7 @@ import "./styles/navbar.css";
 import "./styles/account-form.css";
 import "./styles/cart.css";
 import "./styles/listings.css";
+import "./styles/merch-details.css";
 import Root from "./root";
 import ErrorPage from "./error-page";
 import Homepage from "./components/homepage";
@@ -14,7 +15,6 @@ import Register from "./components/register";
 import Cart from "./components/cart";
 import Merch from "./components/merch";
 import Treats from "./components/treats";
-import IndividualTreat from "./components/individualTreat";
 import IndividualMerch from "./components/individualMerch";
 import Accounts from "./components/accounts";
 
@@ -35,10 +35,6 @@ const router = createBrowserRouter([
       {
         path: "/merch/:merchId",
         element: <IndividualMerch />,
-      },
-      {
-        path: "/:treatId",
-        element: <IndividualTreat />,
       },
       {
         path: "/login",
