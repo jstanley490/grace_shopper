@@ -145,7 +145,7 @@ export default function Accounts() {
           <div>
             {accounts.map((account) => {
               return (
-                <>
+                <div key={account.id}>
                   <h1>
                     {account.first_name} {account.last_name}
                   </h1>
@@ -155,7 +155,7 @@ export default function Accounts() {
                     <div>Address: {account.address}</div>
                     <div>Role: {account.role_id}</div>
                   </div>
-                </>
+                </div>
               );
             })}
           </div>
