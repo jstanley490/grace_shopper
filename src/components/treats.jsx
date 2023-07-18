@@ -6,12 +6,7 @@ import AdminTreats from "./adminTreats";
 export default function Treats() {
   const { treats, setCartItems, cartItems, fetchCart } = useOutletContext();
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   Promise.all([fetchCart()]).then((values) => {
-  //     setCartItems(values[0]);
-  //   });
-  // }, []);
-  // console.log(cartItems);
+
   if (!cartItems || cartItems === undefined) {
     setCartItems({ true: "ay" });
   }
